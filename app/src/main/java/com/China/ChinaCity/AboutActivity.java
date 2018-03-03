@@ -90,62 +90,6 @@ public class AboutActivity extends Activity
 		else
 		{
 			//没有选中的处理
-<<<<<<< HEAD
-			//Toast.makeText(AboutActivity.this, "已关闭在线资源服务。", Toast.LENGTH_SHORT).show();
-			SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
-			editor.putInt("bigtitle",0);
-			editor.commit();
-		}
-		
-	}
-	});
-    }
-
-	public void onClickSubAboutButton1(View view)
-	{
-		Uri uri = Uri.parse("https://github.com/ligongzzz/ChinaCity/blob/master/app/build/bin/app.apk?raw=true");
-    	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		startActivity(intent);
-	}
-	public void onClickSubAboutButton2(View view)
-	{
-		Uri uri = Uri.parse("https://github.com/ligongzzz/ChinaCity");
-    	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		startActivity(intent);
-	}
-	public void onClickSubAboutButtonWatch(View view)
-	{
-		Uri uri = Uri.parse("https://github.com/ligongzzz/ChinaCity/blob/master/README.md");
-    	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		startActivity(intent);
-	}
-	public void onClickSubAboutButtonShare(View view)
-	{
-		Intent intent = new Intent(Intent.ACTION_SEND);
-		intent.setType("text/plain");
-		intent.putExtra(Intent.EXTRA_TEXT,"强烈推荐中国城官方导览应用!下载地址:https://github.com/ligongzzz/ChinaCity/blob/master/app/build/bin/app.apk?raw=true。");
-		startActivity(intent);
-	}
-	public void onClickSubAboutButtonBack(View view)
-	{
-		finish();
-	}
-	public void onClickSubAboutButtonClean(View view)
-	{
-		fileutil.deleteDir(this.getExternalCacheDir().toString());
-		Toast.makeText(this,"已经清除缓存!",Toast.LENGTH_SHORT).show();
-	}
-}
-
-class AboutDialogFragment extends DialogFragment
-{
-	@Override
-	public Dialog onCreateDialog(Bundle savedInstanceState)
-	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setTitle("已启用在线资源服务");
-		builder.setMessage("在线资源服务已开启。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗极少的流量，由此产生的费用请至运营商咨询。");
-=======
 			Toast.makeText(AboutActivity.this, "已关闭在线资源服务。", Toast.LENGTH_SHORT).show();
 			SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 			editor.putInt("bigtitle",0);
@@ -200,7 +144,6 @@ class AboutDialogFragment extends DialogFragment
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle("已启用在线资源服务");
 		builder.setMessage("在线资源服务的内容将会通过大字标题展现，您可以通过它来了解关于中国城的最新消息。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗极少的流量，由此产生的费用请至运营商咨询。");
->>>>>>> branch 'master' of https://github.com/ligongzzz/ChinaCity.git
 		builder.setPositiveButton("好", new DialogInterface.OnClickListener() {
 
 				@Override
