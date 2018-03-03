@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent">
+
+	<ImageView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:background="#999999"
+		android:scaleType="centerCrop"
+		android:adjustViewBounds="true"
+		android:id="@+id/subHiImageView1"/>
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_height="60dp"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:background="#aa000000"
+			android:elevation="3dp">
+
+			<ImageButton
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:src="@drawable/icon_back"
+				android:layout_marginTop="0dp"
+				android:layout_marginBottom="0dp"
+				android:adjustViewBounds="true"
+				android:paddingBottom="13dp"
+				android:paddingTop="13dp"
+				android:maxHeight="20dp"
+				android:cropToPadding="true"
+				android:scaleType="fitCenter"
+				android:onClick="onClickSubHiButtonBack"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="wrap_content"
+				android:text="获取中国城"
+				android:gravity="center_vertical"
+				android:layout_gravity="center_vertical"
+				android:textStyle="bold"
+				android:textColor="#FFFFFF"
+				android:textSize="18sp"/>
+
+		</LinearLayout>
+
+		<ScrollView
+			android:layout_height="match_parent"
+			android:layout_width="match_parent">
+
+			<LinearLayout
+				android:layout_height="match_parent"
+				android:layout_width="match_parent"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:background="@drawable/grey_corner_view"
+					android:id="@+id/hiLinearLayout1"
+					android:layout_marginBottom="15dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp">
+
+					<TextView
+						android:layout_height="wrap_content"
+						android:textAppearance="?android:attr/textAppearanceLarge"
+						android:layout_width="wrap_content"
+						android:text="嗨！"
+						android:layout_marginTop="10dp"
+						android:layout_marginLeft="15dp"
+						android:textSize="100sp"
+						android:textColor="#FFFFFF"/>
+
+					<TextView
+						android:layout_height="wrap_content"
+						android:textAppearance="?android:attr/textAppearanceMedium"
+						android:layout_width="wrap_content"
+						android:text="我们欢迎每一位加入中国城的朋友。"
+						android:layout_marginTop="10dp"
+						android:layout_marginLeft="15dp"
+						android:textColor="#FFFFFF"
+						android:textSize="18sp"
+						android:layout_marginRight="15dp"/>
+
+					<TextView
+						android:layout_height="wrap_content"
+						android:textAppearance="?android:attr/textAppearanceLarge"
+						android:layout_width="match_parent"
+						android:text="点击下面的按钮下载最新版本中国城地图:"
+						android:layout_marginLeft="15dp"
+						android:layout_marginTop="30dp"
+						android:layout_marginRight="15dp"
+						android:textSize="18sp"
+						android:textColor="#FFFFFF"
+						android:id="@+id/hiTextView1"/>
+
+					<Button
+						style="?android:attr/buttonBarButtonStyle"
+						android:layout_height="75dp"
+						android:layout_width="match_parent"
+						android:text="地址加载中，请稍候……"
+						android:layout_marginTop="10dp"
+						android:layout_marginLeft="10dp"
+						android:layout_marginRight="10dp"
+						android:textColor="#FBFBFB"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:paddingTop="10dp"
+						android:paddingBottom="10dp"
+						android:onClick="onClickSubHiButton1"
+						android:id="@+id/hiButton1"/>
+
+					<ProgressBar
+						style="?android:attr/progressBarStyleLarge"
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:layout_gravity="center|center_horizontal"
+						android:id="@+id/hiProgressBar1"
+						android:layout_marginBottom="10dp"/>
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:background="@drawable/grey_corner_view"
+					android:id="@+id/hiLinearLayout2"
+					android:layout_marginBottom="25dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp">
+
+					<TextView
+						android:layout_height="wrap_content"
+						android:textAppearance="?android:attr/textAppearanceLarge"
+						android:layout_width="wrap_content"
+						android:text="进入中国城的正确姿势"
+						android:layout_marginTop="10dp"
+						android:layout_marginLeft="15dp"
+						android:textSize="20sp"
+						android:textColor="#FFFFFF"
+						android:textStyle="bold"/>
+
+					<TextView
+						android:layout_height="wrap_content"
+						android:textAppearance="?android:attr/textAppearanceMedium"
+						android:layout_width="wrap_content"
+						android:text="很简单！点击上面的下载按钮，下载地图后安装即可。如果是iOS用户，可以通过转存到自己的百度网盘后下载，直接以Minecraft形式打开。"
+						android:layout_marginTop="10dp"
+						android:layout_marginLeft="15dp"
+						android:textColor="#FFFFFF"
+						android:textSize="18sp"
+						android:layout_marginRight="15dp"/>
+
+					<Button
+						style="?android:attr/buttonBarButtonStyle"
+						android:layout_height="75dp"
+						android:layout_width="match_parent"
+						android:text="获取Minecraft"
+						android:layout_marginTop="10dp"
+						android:layout_marginLeft="10dp"
+						android:layout_marginRight="10dp"
+						android:textColor="#FFFFFF"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:paddingTop="10dp"
+						android:paddingBottom="10dp"
+						android:onClick="onClickSubHiButton2"
+						android:id="@+id/hiButton2"/>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</ScrollView>
+
+	</LinearLayout>
+
+</RelativeLayout>
+

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="60dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:background="#A70900"
+		android:elevation="3dp">
+
+		<ImageButton
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:src="@drawable/icon_back"
+			android:layout_marginTop="0dp"
+			android:layout_marginBottom="0dp"
+			android:adjustViewBounds="true"
+			android:paddingBottom="13dp"
+			android:paddingTop="13dp"
+			android:maxHeight="20dp"
+			android:cropToPadding="true"
+			android:scaleType="fitCenter"
+			android:onClick="onClickSub1ButtonBack"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="进入中国城"
+			android:gravity="center_vertical"
+			android:layout_gravity="center_vertical"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:textSize="18sp"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:scrollbars="vertical"
+		android:fadingEdge="vertical">
+
+		<LinearLayout
+			android:layout_height="fill_parent"
+			android:layout_width="match_parent"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:layout_marginTop="20dp"
+				android:layout_marginBottom="10dp"
+				android:background="#F5F5F5"
+				android:elevation="3dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceLarge"
+					android:layout_width="wrap_content"
+					android:text="欢迎进入中国城的世界"
+					android:layout_marginTop="10dp"
+					android:layout_marginLeft="10dp"
+					android:textSize="25sp"
+					android:textColor="#A70900"
+					android:textStyle="bold"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="这是一座美丽的城市。从2014年开建以来，这座城市已经经历了3年的风风雨雨。让我们一同走进中国城，品味中国城。"
+					android:typeface="normal"
+					android:elevation="3dp"
+					android:textSize="15sp"
+					android:paddingLeft="10dp"
+					android:paddingRight="10dp"
+					android:textColor="#000000"
+					android:paddingTop="10dp"
+					android:paddingBottom="10dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginBottom="10dp"/>
+
+			</LinearLayout>
+
+			<RelativeLayout
+				android:layout_height="150dp"
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp"
+				android:elevation="3dp"
+				android:layout_marginBottom="10dp"
+				android:background="#7B7B7B"
+				android:onClick="onClickSub1ButtonGet">
+
+				<ImageView
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"
+					android:id="@+id/sub1ImageView1"
+					android:adjustViewBounds="true"
+					android:scaleType="centerCrop"
+					android:background="#787878"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceLarge"
+					android:layout_width="wrap_content"
+					android:text="获取中国城"
+					android:layout_alignBottom="@id/sub1ImageView1"
+					android:layout_marginBottom="10dp"
+					android:layout_marginLeft="10dp"
+					android:textSize="30sp"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_centerInParent="true"
+					android:id="@+id/sub1TextView1"/>
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_height="150dp"
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp"
+				android:elevation="3dp"
+				android:layout_marginBottom="50dp"
+				android:background="#7B7B7B"
+				android:onClick="onClickSub1ButtonArea">
+
+				<ImageView
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"
+					android:id="@+id/sub1ImageView2"
+					android:adjustViewBounds="true"
+					android:scaleType="centerCrop"
+					android:background="#787878"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceLarge"
+					android:layout_width="wrap_content"
+					android:text="行政区介绍"
+					android:layout_alignBottom="@id/sub1ImageView2"
+					android:layout_marginBottom="10dp"
+					android:layout_marginLeft="10dp"
+					android:textSize="30sp"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_centerInParent="true"
+					android:id="@+id/sub1TextView2"/>
+
+			</RelativeLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="60dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:background="#A70900"
+		android:elevation="3dp">
+
+		<ImageButton
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:src="@drawable/icon_back"
+			android:layout_marginTop="0dp"
+			android:layout_marginBottom="0dp"
+			android:adjustViewBounds="true"
+			android:paddingBottom="13dp"
+			android:paddingTop="13dp"
+			android:maxHeight="20dp"
+			android:cropToPadding="true"
+			android:scaleType="fitCenter"
+			android:onClick="onClickSub1Sub1ButtonBack"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="行政区介绍"
+			android:gravity="center_vertical"
+			android:layout_gravity="center_vertical"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:textSize="18sp"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:scrollbars="vertical"
+		android:fadingEdge="vertical">
+
+		<LinearLayout
+			android:layout_height="fill_parent"
+			android:layout_width="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="match_parent"
+				android:text="欢迎来到中国城！"
+				android:layout_marginLeft="10dp"
+				android:textColor="#000000"
+				android:textStyle="bold"
+				android:layout_marginTop="10dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:text="        这是一座美丽的城市。从2014年开建以来，这座城市已经经历了3年的风风雨雨。让我们一同走进中国城，品味中国城。\n        中国城共有5个行政区：天安门区、半岛区、机场区、新区和沙城区。以下是这五个行政区的分区域介绍。"
+				android:layout_marginTop="10dp"
+				android:typeface="normal"
+				android:elevation="3dp"
+				android:textSize="15sp"
+				android:paddingLeft="10dp"
+				android:background="#FDFDFD"
+				android:paddingRight="10dp"
+				android:textColor="#000000"
+				android:paddingTop="10dp"
+				android:paddingBottom="10dp"/>
+
+			<Button
+				android:layout_height="65dp"
+				android:layout_width="match_parent"
+				android:text="天安门区介绍"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="10dp"
+				android:textColor="#A70900"
+				android:onClick="onSub1Button1Click"
+				android:textStyle="bold"/>
+
+			<Button
+				android:layout_height="65dp"
+				android:layout_width="match_parent"
+				android:text="半岛区介绍"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:textColor="#A70900"
+				android:onClick="onSub1Button2Click"
+				android:textStyle="bold"/>
+
+			<Button
+				android:layout_height="65dp"
+				android:layout_width="match_parent"
+				android:text="机场区介绍"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:textColor="#A70900"
+				android:onClick="onSub1Button3Click"
+				android:textStyle="bold"/>
+
+			<Button
+				android:layout_height="65dp"
+				android:layout_width="match_parent"
+				android:text="新区介绍"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:textColor="#A70900"
+				android:onClick="onSub1Button4Click"
+				android:textStyle="bold"/>
+
+			<Button
+				android:layout_height="65dp"
+				android:layout_width="match_parent"
+				android:text="沙城区介绍"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:textColor="#A70900"
+				android:layout_marginBottom="50dp"
+				android:onClick="onSub1Button5Click"
+				android:textStyle="bold"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

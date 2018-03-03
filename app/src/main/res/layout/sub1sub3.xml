@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="60dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:background="#A70900"
+		android:elevation="3dp">
+
+		<ImageButton
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:src="@drawable/icon_back"
+			android:layout_marginTop="0dp"
+			android:layout_marginBottom="0dp"
+			android:adjustViewBounds="true"
+			android:paddingBottom="13dp"
+			android:paddingTop="13dp"
+			android:maxHeight="20dp"
+			android:cropToPadding="true"
+			android:scaleType="fitCenter"
+			android:onClick="onClickSub1Sub3ButtonBack"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="行政区介绍"
+			android:gravity="center_vertical"
+			android:layout_gravity="center_vertical"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:textSize="18sp"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+		<LinearLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_height="100dp"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="match_parent"
+				android:text="中国城行政区介绍"
+				android:gravity="center"
+				android:textColor="#FFFFFF"
+				android:textStyle="bold"
+				android:elevation="3dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@drawable/big_corner_view"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="match_parent"
+				android:text="行政区"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="10dp"
+				android:id="@+id/sub1sub3TextView1"
+				android:textStyle="bold"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:text="@string/sub3text1"
+				android:layout_marginTop="10dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginBottom="10dp"
+				android:id="@+id/sub1sub3TextView2"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:textIsSelectable="true"
+				android:background="@drawable/none_corner_view"
+				android:elevation="3dp"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

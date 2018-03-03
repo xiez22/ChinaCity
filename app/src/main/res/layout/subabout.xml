@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="60dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:background="#A70900"
+		android:elevation="3dp">
+
+		<ImageButton
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:src="@drawable/icon_back"
+			android:layout_marginTop="0dp"
+			android:layout_marginBottom="0dp"
+			android:adjustViewBounds="true"
+			android:paddingBottom="13dp"
+			android:paddingTop="13dp"
+			android:maxHeight="20dp"
+			android:cropToPadding="true"
+			android:scaleType="fitCenter"
+			android:onClick="onClickSubAboutButtonBack"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="关于中国城游览者导览应用"
+			android:gravity="center_vertical"
+			android:layout_gravity="center_vertical"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:textSize="18sp"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="match_parent"
+				android:text="设置"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="10dp"/>
+
+			<LinearLayout
+				android:layout_height="50dp"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="5dp"
+				android:background="#FAFAFA"
+				android:elevation="3dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:text="启动页面"
+					android:layout_gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textColor="#000000"
+					android:textSize="15sp"/>
+
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:layout_gravity="right|center_vertical"
+					android:gravity="right">
+
+					<Switch
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:gravity="right"
+						android:layout_gravity="right"
+						android:layout_marginRight="15dp"
+						android:textOn="onSubAboutTextOn"
+						android:textOff="onSubAboutTextOff"
+						android:id="@+id/subaboutSwitch1"/>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<View
+				android:layout_height="1dp"
+				android:layout_width="match_parent"
+				android:background="#DDDDDD"/>
+
+			<LinearLayout
+				android:layout_height="50dp"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:background="#FAFAFA"
+				android:elevation="3dp"
+				android:layout_gravity="center_vertical">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:text="在线资源服务"
+					android:gravity="center_vertical"
+					android:layout_gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					android:textColor="#000000"/>
+
+				<LinearLayout
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:layout_gravity="right"
+					android:gravity="right">
+
+					<Switch
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:gravity="right|center_vertical"
+						android:layout_gravity="right|center_vertical"
+						android:layout_marginRight="15dp"
+						android:id="@+id/subaboutSwitch2"/>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<View
+				android:layout_height="1dp"
+				android:layout_width="match_parent"
+				android:background="#DDDDDD"/>
+
+			<Button
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="50dp"
+				android:layout_width="match_parent"
+				android:text="清除缓存"
+				android:gravity="left|center_vertical"
+				android:textSize="15sp"
+				android:textColor="#2637D7"
+				android:background="#FAFAFA"
+				android:elevation="3dp"
+				android:onClick="onClickSubAboutButtonClean"
+				android:paddingLeft="10dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="match_parent"
+				android:text="关于"
+				android:layout_marginTop="10dp"
+				android:layout_marginLeft="10dp"/>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:background="#F4F4F4"
+				android:elevation="3dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="中国城 2.4.0 2018年3月1日\n\n更新日志:\n1、在线资源服务正式启用。\n2、城市介绍界面改版。\n3、统一标题栏界面风格，增加了返回按钮。\n4、减少了部分本地资源的使用。\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
+					android:textSize="15sp"
+					android:textColor="#000000"
+					android:paddingLeft="10dp"
+					android:paddingTop="10dp"
+					android:paddingBottom="10dp"
+					android:paddingRight="10dp"
+					android:textIsSelectable="true"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="查看完整更新日志"
+					android:layout_marginLeft="10dp"
+					android:layout_marginBottom="10dp"
+					android:textColor="#4125D6"
+					android:onClick="onClickSubAboutButtonWatch"/>
+
+			</LinearLayout>
+
+			<Button
+				android:layout_height="70dp"
+				android:layout_width="match_parent"
+				android:text="下载最新版本应用"
+				android:layout_marginLeft="0dp"
+				android:layout_marginRight="0dp"
+				android:layout_marginTop="10dp"
+				android:textSize="16sp"
+				android:textColor="#A70900"
+				android:onClick="onClickSubAboutButton1"
+				android:textStyle="bold"/>
+
+			<Button
+				android:layout_height="70dp"
+				android:layout_width="match_parent"
+				android:text="分享该应用"
+				android:layout_marginLeft="0dp"
+				android:layout_marginRight="0dp"
+				android:textSize="16sp"
+				android:textColor="#A70900"
+				android:onClick="onClickSubAboutButtonShare"
+				android:textStyle="bold"/>
+
+			<Button
+				android:layout_height="70dp"
+				android:layout_width="match_parent"
+				android:text="项目GitHub源码"
+				android:textSize="16sp"
+				android:textColor="#081187"
+				android:onClick="onClickSubAboutButton2"
+				android:textStyle="bold"/>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:layout_marginTop="10dp"
+				android:layout_marginLeft="0dp"
+				android:layout_marginRight="0dp"
+				android:elevation="3dp"
+				android:layout_marginBottom="10dp"
+				android:background="#F4F4F4">
+
+				<ImageView
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"
+					android:src="@drawable/image_bilibili"
+					android:layout_marginLeft="10dp"
+					android:layout_marginBottom="10dp"
+					android:layout_marginTop="10dp"
+					android:adjustViewBounds="true"
+					android:layout_weight="1.0"
+					android:layout_marginRight="10dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:text="UP主哔哩哔哩账号\n(UID:14116912)"
+					android:gravity="center|center_horizontal"
+					android:layout_gravity="center"
+					android:layout_marginBottom="10dp"
+					android:textStyle="bold"
+					android:textColor="#A70900"
+					android:textSize="15sp"/>
+
+			</LinearLayout>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:text="        中国城是使用Minecraft打造的多功能景观性城市模型，城市地图与本程序的著作权归原作者所有，任何组织或个人不得以任何方式修改、反编译本程序或将本程序与城市地图用于商业目的。"
+				android:background="#F4F4F4"
+				android:layout_marginBottom="30dp"
+				android:elevation="3dp"
+				android:textSize="15sp"
+				android:textColor="#000000"
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp"
+				android:paddingTop="10dp"
+				android:paddingBottom="10dp"
+				android:layout_marginTop="10dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="match_parent"
+				android:text="©2018 ligongzzz版权所有"
+				android:gravity="center"
+				android:layout_marginBottom="10dp"
+				android:textSize="10sp"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

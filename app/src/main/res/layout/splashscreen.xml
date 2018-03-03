@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:layout_weight="7"
+		android:background="#A70900"
+		android:gravity="center|center_vertical"
+		android:elevation="3dp">
+
+		<ImageView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:src="@drawable/image_title"
+			android:adjustViewBounds="true"
+			android:layout_marginLeft="55dp"
+			android:layout_marginRight="55dp"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="城市的梦想"
+			android:textSize="16sp"
+			android:textColor="#EAB1A9"
+			android:layout_marginTop="70dp"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:layout_weight="0.7"
+		android:gravity="bottom|center_horizontal">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="中国城游览者导览应用"
+			android:layout_marginBottom="25dp"
+			android:textSize="20sp"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="V2.4.0     Designed by @ligongzzz"
+			android:layout_marginBottom="25dp"
+			android:textSize="10sp"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

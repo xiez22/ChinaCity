@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">中国城</string>
+    <string name="hello_world">（c）2017中国城人民政府 版权所有</string>
+	<string name="sub3text1">%1$s</string>
+
+</resources>
