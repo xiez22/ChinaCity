@@ -143,7 +143,7 @@ class AboutDialogFragment extends DialogFragment
 	{
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle("已启用在线资源服务");
-		builder.setMessage("在线资源服务的内容将会通过大字标题展现，您可以通过它来了解关于中国城的最新消息。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗极少的流量，由此产生的费用请至运营商咨询。");
+		builder.setMessage("在线资源服务已启用。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗极少的流量，由此产生的费用请至运营商咨询。");
 		builder.setPositiveButton("好", new DialogInterface.OnClickListener() {
 
 				@Override

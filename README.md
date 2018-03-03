@@ -17,8 +17,5 @@
 - 将行政区介绍栏目入口移至进入中国城中。
 - 修复了无法联网的bug。
 - 增加了清除缓存的功能。
-<<<<<<< HEAD
 - 修改获取中国城的界面风格。
-=======
->>>>>>> branch 'master' of https://github.com/ligongzzz/ChinaCity.git
 
