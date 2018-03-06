@@ -19,13 +19,12 @@ public final class R {
         public static final int grey_corner_view=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int icon_back=0x7f020003;
-        public static final int image_bilibili=0x7f020004;
-        public static final int image_icon=0x7f020005;
-        public static final int image_title=0x7f020006;
-        public static final int list_corner_view=0x7f020007;
-        public static final int none_corner_view=0x7f020008;
-        public static final int purple_corner_view=0x7f020009;
-        public static final int white_corner_view=0x7f02000a;
+        public static final int image_icon=0x7f020004;
+        public static final int image_title=0x7f020005;
+        public static final int list_corner_view=0x7f020006;
+        public static final int none_corner_view=0x7f020007;
+        public static final int purple_corner_view=0x7f020008;
+        public static final int white_corner_view=0x7f020009;
     }
     public static final class id {
         public static final int hiButton1=0x7f070003;
@@ -49,12 +48,16 @@ public final class R {
         public static final int sub2Spinner2=0x7f070012;
         public static final int sub2TextView1=0x7f070013;
         public static final int subHiImageView1=0x7f070000;
-        public static final int subaboutSwitch1=0x7f070019;
-        public static final int subaboutSwitch2=0x7f07001a;
-        public static final int sublistListView1=0x7f070018;
-        public static final int sublistTextView1=0x7f070015;
-        public static final int sublistTextView2=0x7f070016;
-        public static final int sublistTextView3=0x7f070017;
+        public static final int subaboutImageView1=0x7f07001e;
+        public static final int subaboutLinearLayout1=0x7f07001d;
+        public static final int subaboutSwitch1=0x7f07001b;
+        public static final int subaboutSwitch2=0x7f07001c;
+        public static final int sublistLinearLayout1=0x7f070015;
+        public static final int sublistLinearLayout2=0x7f070018;
+        public static final int sublistListView1=0x7f07001a;
+        public static final int sublistTextView1=0x7f070016;
+        public static final int sublistTextView2=0x7f070017;
+        public static final int sublistTextView3=0x7f070019;
     }
     public static final class layout {
         public static final int hi=0x7f030000;

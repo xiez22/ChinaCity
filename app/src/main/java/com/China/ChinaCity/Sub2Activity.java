@@ -9,6 +9,7 @@ import java.math.*;
 import com.China.ChinaCity.Line.*;
 import android.widget.AdapterView.*;
 import java.util.*;
+import android.view.animation.*;
 
 public class Sub2Activity extends Activity 
 {
@@ -66,6 +67,28 @@ public class Sub2Activity extends Activity
 				{
 				}
 			});
+			
+			//Loading
+		int zmt=0;
+		try{
+		Intent intent =getIntent();
+        Bundle bundle= intent.getExtras();
+        zmt=bundle.getInt("zmt");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+		if(zmt==1){
+			SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
+			String startstation= sp.getString("startstation","");
+			EditText editText1=(EditText) findViewById(R.id.sub2EditText1);
+			editText1.setText(startstation);
+			String endstation= sp.getString("endstation","");
+			EditText editText2=(EditText) findViewById(R.id.sub2EditText2);
+			editText2.setText(endstation);
+		}
+		}
     }
 
 	//输出内容
@@ -154,6 +177,14 @@ public class Sub2Activity extends Activity
 	{
 		Intent intent = new Intent(this, SubListActivity.class);
 		intent.putExtra("zmt", 1);
+		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+		EditText editText1=(EditText) findViewById(R.id.sub2EditText1);
+		EditText editText2=(EditText) findViewById(R.id.sub2EditText2);
+		String start=editText1.getText().toString();
+		String end=editText2.getText().toString();
+		editor.putString("startstation",start);
+		editor.putString("endstation",end);
+		editor.commit();
     	startActivity(intent);
 	}
 
@@ -183,33 +214,15 @@ public class Sub2Activity extends Activity
 			Toast.makeText(this, "没有可供分享的路线信息!", Toast.LENGTH_SHORT).show();
 		}
 	}
-
-
-	/*public boolean onCreateOptionsMenu(Menu menu)
-	 {
-	 // Inflate main_menu.xml 
-	 MenuInflater inflater = getMenuInflater();
-	 inflater.inflate(R.layout.sub2_menu, menu);
-	 return true;
+	 
+	 public static void stastart(){
+		 int a=0;
+		 Message message = new Message(); 
+		 message.what = 1; 
+		// handler.sendMessage(message);
 	 }
-
-	 public boolean onOptionsItemSelected(MenuItem item)
-	 {
-	 // TODO: Implement this method
-	 if (R.id.mainMenuShare==item.getItemId()){
-	 if(request_statue==1){
-	 Intent intent = new Intent(Intent.ACTION_SEND);
-	 intent.setType("text/plain");
-	 intent.putExtra(Intent.EXTRA_TEXT, op2);
-	 startActivity(intent);
-	 }
-	 else{
-	 Toast.makeText(this, "没有可供分享的路线信息!", Toast.LENGTH_SHORT).show();
-	 }
-	 }
-	 return super.onOptionsItemSelected(item);
-	 }*/
-
+	 
+	
 }
 class TipDialogFragment extends DialogFragment
 {

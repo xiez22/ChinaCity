@@ -16,6 +16,7 @@ public class SubListActivity extends Activity
 	int yyflist[]=new int[50];
 	List alist=new ArrayList();
 	int zmt=0;
+	int yyftemp=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,6 +32,12 @@ public class SubListActivity extends Activity
 		switch (zmt)
 		{
 			case 1:{
+				    //Remove
+					LinearLayout linear1=(LinearLayout)findViewById(R.id.sublistLinearLayout1);
+					LinearLayout linear2=(LinearLayout)findViewById(R.id.sublistLinearLayout2);
+					
+					linear1.removeView(linear2);
+				
 					//设置大字
 					TextView textView1=(TextView)findViewById(R.id.sublistTextView1);
 					TextView textView2=(TextView)findViewById(R.id.sublistTextView2);
@@ -55,6 +62,13 @@ public class SubListActivity extends Activity
 					break;
 				}
 			case 2:{
+				
+					//Remove
+					LinearLayout linear1=(LinearLayout)findViewById(R.id.sublistLinearLayout1);
+					LinearLayout linear2=(LinearLayout)findViewById(R.id.sublistLinearLayout2);
+
+					linear1.removeView(linear2);
+				
 				    int yyf=bundle.getInt("yyf");
 				    LineSearch linesearch=new LineSearch();
 					linesearch.initlog();
@@ -82,6 +96,7 @@ public class SubListActivity extends Activity
 				}
 			case 3:{
 				    int yyf=bundle.getInt("yyf");
+					yyftemp=yyf;
 				    LineSearch linesearch=new LineSearch();
 					linesearch.initlog();
 					//设置大字
@@ -128,8 +143,33 @@ public class SubListActivity extends Activity
 	public void onClickSubListReturn(View view){
 		Intent intent1 = new Intent(SubListActivity.this, Sub2Activity.class);
 	    intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);  
 		startActivity(intent1);
 		finish();
+	}
+	
+	public void onClickSubListButtonStart(View view){
+		Intent intent1 = new Intent(SubListActivity.this, Sub2Activity.class);
+		intent1.putExtra("zmt",1);
+	    intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		LineSearch linesearch=new LineSearch();
+		linesearch.initlog();
+		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+		editor.putString("startstation",linesearch.slist[yyftemp].name);
+		editor.commit();
+		startActivity(intent1);
+	}
+	
+	public void onClickSubListButtonEnd(View view){
+		Intent intent1 = new Intent(SubListActivity.this, Sub2Activity.class);
+		intent1.putExtra("zmt",1);
+	    intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		LineSearch linesearch=new LineSearch();
+		linesearch.initlog();
+		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+		editor.putString("endstation",linesearch.slist[yyftemp].name);
+		editor.commit();
+		startActivity(intent1);
 	}
 	
 	public void onClickSubListButtonBack(View view){

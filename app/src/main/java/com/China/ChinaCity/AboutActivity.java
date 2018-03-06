@@ -9,9 +9,15 @@ import android.widget.*;
 import com.China.ChinaCity.Tool.*;
 import java.util.*;
 import java.io.*;
+import android.graphics.*;
+import android.view.animation.*;
 
 public class AboutActivity extends Activity 
 {
+	
+	int downloaded=0;
+	int downloadsta=0;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,9 +42,41 @@ public class AboutActivity extends Activity
 		int result1 = sp1.getInt("bigtitle",p2);
 		if(result1==0){
 			mSwitch1.setChecked(false);
+			LinearLayout linear=(LinearLayout)findViewById(R.id.subaboutLinearLayout1);
+			ImageView iv=(ImageView)findViewById(R.id.subaboutImageView1);
+			linear.removeView(iv);
 		}
 		else if(result1==1){
 			mSwitch1.setChecked(true);
+		}
+		//Download
+		if(result1==1){
+			new Thread(new Runnable() {
+					@Override
+					public void run()
+					{
+						int dr=0;
+						int filesta=fileutil.write(null, "/Android/data/com.China.ChinaCity/cache/image_bilibili.jpg", 2);
+						if (filesta == 0)
+						{
+							downloaded=1;
+							dr = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/image_bilibili.jpg", "/Android/data/com.China.ChinaCity/cache/", "image_bilibili.jpg");
+						}
+						if (dr == 0)
+						{
+							downloadsta= 1;
+							Message message = new Message(); 
+							message.what = 1; 
+							handler.sendMessage(message);
+						}
+						else{
+							downloadsta= 2;
+							Message message = new Message(); 
+							message.what = 1; 
+							handler.sendMessage(message);
+						}
+					}
+				}).start();
 		}
 		
 		mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -118,6 +156,12 @@ public class AboutActivity extends Activity
     	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		startActivity(intent);
 	}
+	public void onClickSubAboutButtonBilibili(View view)
+	{
+		Uri uri = Uri.parse("https://space.bilibili.com/14116912/#/");
+    	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(intent);
+	}
 	public void onClickSubAboutButtonShare(View view)
 	{
 		Intent intent = new Intent(Intent.ACTION_SEND);
@@ -134,6 +178,31 @@ public class AboutActivity extends Activity
 		fileutil.deleteDir(this.getExternalCacheDir().toString());
 		Toast.makeText(this,"已经清除缓存!",Toast.LENGTH_SHORT).show();
 	}
+	
+	Handler handler= new Handler() { 
+		public void handleMessage(Message msg)
+		{ 
+			if (downloadsta== 1)
+			{
+				String path = Environment.getExternalStorageDirectory().toString();//获得SDCard目录 
+				Bitmap bmpDefaultPic=null;
+				ImageView  iv = (ImageView)findViewById(R.id.subaboutImageView1);
+				if (bmpDefaultPic == null)
+					bmpDefaultPic = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_bilibili.jpg", null);
+				iv.setImageBitmap(bmpDefaultPic);
+				if(downloaded==1){
+					Animation animation=AnimationUtils.loadAnimation(AboutActivity.this, R.anim.alpha_anim_appear);
+					iv.startAnimation(animation);
+				}
+			}
+			else{
+				LinearLayout linear=(LinearLayout)findViewById(R.id.subaboutLinearLayout1);
+				ImageView iv=(ImageView)findViewById(R.id.subaboutImageView1);
+				linear.removeView(iv);
+			}
+			super.handleMessage(msg); 
+		}
+	};
 }
 
 class AboutDialogFragment extends DialogFragment
@@ -155,5 +224,7 @@ class AboutDialogFragment extends DialogFragment
 
 		return builder.create();
 	}
+	
+	
 
 }

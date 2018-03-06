@@ -13,7 +13,7 @@ import com.China.ChinaCity.Tool.*;
 
 public class MainActivity extends Activity 
 {
-	int titlep=0;
+	public int titlep=0;
 	int text2sta=0;
 
 	//Download Status
@@ -110,7 +110,7 @@ public class MainActivity extends Activity
 
 
 	//Handlers
-	Handler handler1 = new Handler() { 
+	public Handler handler1 = new Handler() { 
 		public void handleMessage(Message msg)
 		{ 
 			//获取状态

@@ -177,7 +177,7 @@
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
-					android:text="中国城 2.4.0 2018年3月1日\n\n更新日志:\n1、在线资源服务正式启用。\n2、城市介绍界面改版。\n3、统一标题栏界面风格，增加了返回按钮。\n4、减少了部分本地资源的使用。\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
+					android:text="中国城 2.4.0 2018年3月1日\n\n更新日志:\n1、在线资源服务正式启用。\n2、城市介绍界面改版。\n3、统一标题栏界面风格，增加了返回按钮。\n4、减少了部分本地资源的使用。\n5、线路列表页面增加了设为起点和终点的功能。\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
 					android:textSize="15sp"
 					android:textColor="#000000"
 					android:paddingLeft="10dp"
@@ -238,18 +238,21 @@
 				android:layout_marginRight="0dp"
 				android:elevation="3dp"
 				android:layout_marginBottom="10dp"
-				android:background="#F4F4F4">
+				android:background="#F4F4F4"
+				android:onClick="onClickSubAboutButtonBilibili"
+				android:id="@+id/subaboutLinearLayout1">
 
 				<ImageView
 					android:layout_height="match_parent"
 					android:layout_width="match_parent"
-					android:src="@drawable/image_bilibili"
 					android:layout_marginLeft="10dp"
 					android:layout_marginBottom="10dp"
 					android:layout_marginTop="10dp"
 					android:adjustViewBounds="true"
 					android:layout_weight="1.0"
-					android:layout_marginRight="10dp"/>
+					android:layout_marginRight="10dp"
+					android:scaleType="centerCrop"
+					android:id="@+id/subaboutImageView1"/>
 
 				<TextView
 					android:layout_height="wrap_content"
@@ -261,7 +264,8 @@
 					android:layout_marginBottom="10dp"
 					android:textStyle="bold"
 					android:textColor="#A70900"
-					android:textSize="15sp"/>
+					android:textSize="15sp"
+					android:layout_marginTop="10dp"/>
 
 			</LinearLayout>
 
