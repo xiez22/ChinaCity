@@ -50,9 +50,14 @@
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="match_parent"
 				android:layout_width="wrap_content"
-				android:src="@android:drawable/ic_menu_close_clear_cancel"
+				android:src="@drawable/icon_close"
 				android:layout_gravity="right"
-				android:onClick="onClickSubListReturn"/>
+				android:onClick="onClickSubListReturn"
+				android:maxHeight="20dp"
+				android:adjustViewBounds="true"
+				android:scaleType="fitCenter"
+				android:paddingBottom="13dp"
+				android:paddingTop="13dp"/>
 
 		</LinearLayout>
 

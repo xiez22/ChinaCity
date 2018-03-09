@@ -49,9 +49,14 @@
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="match_parent"
 				android:layout_width="wrap_content"
-				android:src="@android:drawable/ic_menu_share"
+				android:src="@drawable/icon_share"
 				android:layout_gravity="right|center"
-				android:onClick="onClickSub2ButtonShare"/>
+				android:onClick="onClickSub2ButtonShare"
+				android:adjustViewBounds="true"
+				android:minHeight="20dp"
+				android:scaleType="fitCenter"
+				android:paddingBottom="15dp"
+				android:paddingTop="15dp"/>
 
 		</LinearLayout>
 
