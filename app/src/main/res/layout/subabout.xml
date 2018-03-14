@@ -144,18 +144,28 @@
 				android:layout_width="match_parent"
 				android:background="#DDDDDD"/>
 
-			<Button
-				style="?android:attr/buttonBarButtonStyle"
+			<LinearLayout
 				android:layout_height="50dp"
 				android:layout_width="match_parent"
-				android:text="清除缓存"
-				android:gravity="left|center_vertical"
-				android:textSize="15sp"
-				android:textColor="#2637D7"
+				android:orientation="horizontal"
 				android:background="#FAFAFA"
 				android:elevation="3dp"
-				android:onClick="onClickSubAboutButtonClean"
-				android:paddingLeft="10dp"/>
+				android:layout_marginBottom="10dp">
+
+				<Button
+					style="?android:attr/buttonBarButtonStyle"
+					android:layout_height="50dp"
+					android:layout_width="match_parent"
+					android:text="清除缓存"
+					android:gravity="left|center_vertical"
+					android:textSize="15sp"
+					android:textColor="#2637D7"
+					android:onClick="onClickSubAboutButtonClean"
+					android:paddingLeft="10dp"
+					android:paddingTop="0dp"
+					android:paddingBottom="0dp"/>
+
+			</LinearLayout>
 
 			<TextView
 				android:layout_height="wrap_content"
