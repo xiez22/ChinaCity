@@ -87,6 +87,13 @@
 
 		</activity>
 
+		<activity
+			android:label="Gallery"
+			android:theme="@style/HiTheme"
+			android:name=".GalleryActivity">
+
+		</activity>
+
 	</application>
 
 	<uses-permission

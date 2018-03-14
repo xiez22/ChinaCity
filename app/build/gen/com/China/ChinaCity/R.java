@@ -39,27 +39,35 @@ public final class R {
         public static final int mainTextView2=0x7f070007;
         public static final int sub1ImageView1=0x7f070009;
         public static final int sub1ImageView2=0x7f07000b;
+        public static final int sub1ImageView3=0x7f07000d;
         public static final int sub1TextView1=0x7f07000a;
         public static final int sub1TextView2=0x7f07000c;
-        public static final int sub1sub3TextView1=0x7f07000d;
-        public static final int sub1sub3TextView2=0x7f07000e;
-        public static final int sub2EditText1=0x7f07000f;
-        public static final int sub2EditText2=0x7f070011;
-        public static final int sub2ListView1=0x7f070014;
-        public static final int sub2Spinner1=0x7f070010;
-        public static final int sub2Spinner2=0x7f070012;
-        public static final int sub2TextView1=0x7f070013;
+        public static final int sub1TextView3=0x7f07000e;
+        public static final int sub1sub3TextView1=0x7f07000f;
+        public static final int sub1sub3TextView2=0x7f070010;
+        public static final int sub2EditText1=0x7f070011;
+        public static final int sub2EditText2=0x7f070013;
+        public static final int sub2ListView1=0x7f070016;
+        public static final int sub2Spinner1=0x7f070012;
+        public static final int sub2Spinner2=0x7f070014;
+        public static final int sub2TextView1=0x7f070015;
         public static final int subHiImageView1=0x7f070000;
-        public static final int subaboutImageView1=0x7f07001e;
-        public static final int subaboutLinearLayout1=0x7f07001d;
-        public static final int subaboutSwitch1=0x7f07001b;
-        public static final int subaboutSwitch2=0x7f07001c;
-        public static final int sublistLinearLayout1=0x7f070015;
-        public static final int sublistLinearLayout2=0x7f070018;
-        public static final int sublistListView1=0x7f07001a;
-        public static final int sublistTextView1=0x7f070016;
-        public static final int sublistTextView2=0x7f070017;
-        public static final int sublistTextView3=0x7f070019;
+        public static final int subaboutImageView1=0x7f070020;
+        public static final int subaboutLinearLayout1=0x7f07001f;
+        public static final int subaboutSwitch1=0x7f07001d;
+        public static final int subaboutSwitch2=0x7f07001e;
+        public static final int subgalleryImageView1=0x7f070022;
+        public static final int subgalleryProgressBar1=0x7f070025;
+        public static final int subgalleryRelativeLayout1=0x7f070021;
+        public static final int subgalleryTextView1=0x7f070024;
+        public static final int subgalleryTextView2=0x7f070023;
+        public static final int subgalleryTextView3=0x7f070026;
+        public static final int sublistLinearLayout1=0x7f070017;
+        public static final int sublistLinearLayout2=0x7f07001a;
+        public static final int sublistListView1=0x7f07001c;
+        public static final int sublistTextView1=0x7f070018;
+        public static final int sublistTextView2=0x7f070019;
+        public static final int sublistTextView3=0x7f07001b;
     }
     public static final class layout {
         public static final int hi=0x7f030000;
@@ -71,6 +79,7 @@ public final class R {
         public static final int sub2=0x7f030006;
         public static final int sub_list=0x7f030007;
         public static final int subabout=0x7f030008;
+        public static final int subgallery=0x7f030009;
     }
     public static final class string {
         public static final int app_name=0x7f050000;

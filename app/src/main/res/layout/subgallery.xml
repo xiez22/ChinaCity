@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:background="#000000"
+	android:id="@+id/subgalleryRelativeLayout1">
+
+	<ImageView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:adjustViewBounds="true"
+		android:scaleType="centerCrop"
+		android:id="@+id/subgalleryImageView1"
+		android:onClick="onClickSubGalleryGoto"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:layout_alignBottom="@id/subgalleryImageView1"
+		android:id="@+id/subgalleryTextView2"
+		android:layout_marginLeft="15dp"
+		android:layout_marginBottom="15dp"
+		android:textColor="#E9E9E9"
+		android:layout_marginRight="15dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="wrap_content"
+		android:layout_above="@id/subgalleryTextView2"
+		android:id="@+id/subgalleryTextView1"
+		android:layout_marginLeft="10dp"
+		android:layout_marginBottom="5dp"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		android:textColor="#F0F0F0"
+		android:layout_marginRight="10dp"/>
+
+	<ProgressBar
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_centerInParent="true"
+		android:id="@+id/subgalleryProgressBar1"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@id/subgalleryProgressBar1"
+		android:textColor="#F5F5F5"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/subgalleryTextView3"/>
+
+	<LinearLayout
+		android:layout_height="60dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:alpha="0.6">
+
+		<ImageButton
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:src="@drawable/icon_back"
+			android:layout_marginTop="0dp"
+			android:layout_marginBottom="0dp"
+			android:adjustViewBounds="true"
+			android:paddingBottom="13dp"
+			android:paddingTop="13dp"
+			android:maxHeight="20dp"
+			android:cropToPadding="true"
+			android:scaleType="fitCenter"
+			android:onClick="onClickSubGalleryButtonBack"
+			android:alpha="0.5"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
+

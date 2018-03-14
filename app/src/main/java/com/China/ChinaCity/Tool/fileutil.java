@@ -15,7 +15,7 @@ import android.view.Display.*;
 
 
 public class fileutil{
-// 文件写操作函数
+// 文件写操作函数(0添加 1覆盖 2查验 3删除)
     public static int write(String content,String address,int mode) {
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) { // 如果sdcard存在
@@ -34,6 +34,12 @@ public class fileutil{
 			else if(file.exists()==false&&mode==2){
 				return 0;
 			}
+			
+			if(mode==3){
+				file.delete();
+				return 0;
+			}
+			
             PrintStream out = null; // 打印流对象用于输出
             try {
                 out = new PrintStream(new FileOutputStream(file, true)); // 追加文件

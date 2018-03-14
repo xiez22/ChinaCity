@@ -59,6 +59,11 @@
 			android:theme="@style/MAINTheme"
 			android:name=".Sub1Sub1Activity">
 		</activity>
+		<activity
+		    android:label="Gallery"
+			android:theme="@style/HiTheme"
+			android:name=".GalleryActivity">
+		</activity>
     </application>
 
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

@@ -128,7 +128,7 @@ public class AboutActivity extends Activity
 		else
 		{
 			//没有选中的处理
-			Toast.makeText(AboutActivity.this, "已关闭在线资源服务。", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(AboutActivity.this, "已关闭在线资源服务。", Toast.LENGTH_SHORT).show();
 			SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 			editor.putInt("bigtitle",0);
 			editor.commit();
@@ -212,7 +212,7 @@ class AboutDialogFragment extends DialogFragment
 	{
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle("已启用在线资源服务");
-		builder.setMessage("在线资源服务已启用。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗极少的流量，由此产生的费用请至运营商咨询。");
+		builder.setMessage("在线资源服务已启用。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗一定的流量，由此产生的费用请至运营商咨询。");
 		builder.setPositiveButton("好", new DialogInterface.OnClickListener() {
 
 				@Override
@@ -224,7 +224,4 @@ class AboutDialogFragment extends DialogFragment
 
 		return builder.create();
 	}
-	
-	
-
 }

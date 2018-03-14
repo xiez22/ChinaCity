@@ -18,6 +18,7 @@ public class MainActivity extends Activity
 
 	//Download Status
 	int downloadsta=0;
+	int startAtBegin=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,23 +56,28 @@ public class MainActivity extends Activity
 		Timer timer1=new Timer();
 		timer1.schedule(task1, 6600, 6000);
 
+		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
+		int result = sp.getInt("bigtitle", 1);
 		//Download Files
-		new Thread(new Runnable() {
-				@Override
-				public void run()
-				{
-					int dr=internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/bigtitle.txt", "/ChinaCity/", "BigTitleOL.txt");
-					if (dr == 0)
+		if (result == 1)
+		{
+			startAtBegin = 1;
+			new Thread(new Runnable() {
+					@Override
+					public void run()
 					{
-						downloadsta = 1;
+						int dr=internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/bigtitle.txt", "/ChinaCity/", "BigTitleOL.txt");
+						if (dr == 0)
+						{
+							downloadsta = 1;
+						}
+						else
+						{
+							downloadsta = 2;
+						}
 					}
-					else
-					{
-						downloadsta = 2;
-					}
-				}
-			}).start();
-
+				}).start();
+		}
     }
 
 	public void onButton1Click(View view)
@@ -143,6 +149,28 @@ public class MainActivity extends Activity
 				{
 					list.add("更新文件中......");
 					list.add("Updating the Data...");
+
+					//Download Files
+					if (startAtBegin == 0)
+					{
+						downloadsta = 0;
+						startAtBegin=1;
+						new Thread(new Runnable() {
+								@Override
+								public void run()
+								{
+									int dr=internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/bigtitle.txt", "/ChinaCity/", "BigTitleOL.txt");
+									if (dr == 0)
+									{
+										downloadsta = 1;
+									}
+									else
+									{
+										downloadsta = 2;
+									}
+								}
+							}).start();
+					}
 				}
 				else if (downloadsta == 2)
 				{
