@@ -43,4 +43,13 @@
 		<item name="android:colorButtonNormal">#6666ff</item>
 
 	</style>
+	<style name="GalleryTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+	  	<item name="android:colorPrimary">#000000</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:colorPrimaryDark">#000000</item>
+        <item name="android:windowFullscreen">true</item>
+		<item name="android:colorAccent">#FF0000</item> 
+		<item name="android:colorButtonNormal">#ffffff</item>
+
+	</style>
 </resources>

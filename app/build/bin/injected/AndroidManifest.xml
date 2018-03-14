@@ -89,7 +89,7 @@
 
 		<activity
 			android:label="Gallery"
-			android:theme="@style/HiTheme"
+			android:theme="@style/GalleryTheme"
 			android:name=".GalleryActivity">
 
 		</activity>

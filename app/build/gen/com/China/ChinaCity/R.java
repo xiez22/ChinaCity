@@ -89,6 +89,7 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f060000;
+        public static final int GalleryTheme=0x7f060005;
         public static final int HiTheme=0x7f060002;
         public static final int MAINTheme=0x7f060001;
         public static final int MapTheme=0x7f060004;
