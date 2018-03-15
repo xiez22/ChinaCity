@@ -37,7 +37,7 @@ public class AboutActivity extends Activity
 		else if(result==1){
 	     mSwitch.setChecked(false);
 		}
-		p2=1;
+		p2=0;
 		SharedPreferences sp1 = getSharedPreferences("temp", Activity.MODE_PRIVATE);
 		int result1 = sp1.getInt("bigtitle",p2);
 		if(result1==0){

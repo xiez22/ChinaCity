@@ -25,8 +25,7 @@ public class Sub1Activity extends Activity
 
 		//Start Internet Connection
 		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
-		int p2=1;
-		int result = sp.getInt("bigtitle", p2);
+		int result = sp.getInt("bigtitle",0);
 		online=result;
 		noticed=sp.getInt("noticed",0);
 		if (result == 1)
@@ -153,7 +152,7 @@ public class Sub1Activity extends Activity
 						SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 						editor.putInt("noticed",1);
 						editor.commit();
-						
+						noticed=1;
 						Intent intent = new Intent(Sub1Activity.this, GalleryActivity.class);
 						startActivity(intent);
 					}

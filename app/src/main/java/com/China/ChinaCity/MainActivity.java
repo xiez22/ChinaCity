@@ -25,6 +25,17 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
+		//Request
+		SharedPreferences sp1= getSharedPreferences("temp", Activity.MODE_PRIVATE);
+		int result1 = sp1.getInt("request",0);//Internet Request
+		if(result1==0)
+		{
+			RequestDialogFragment f = new RequestDialogFragment();
+			f.show(getFragmentManager(), "mydialog");
+			f.setCancelable(false);
+		}
+		
 		//修改标题
 		String[] bigtitle={"欢迎来到中国城"};
 		Random random=new Random();
@@ -57,7 +68,7 @@ public class MainActivity extends Activity
 		timer1.schedule(task1, 6600, 6000);
 
 		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
-		int result = sp.getInt("bigtitle", 1);
+		int result = sp.getInt("bigtitle",0);
 		//Download Files
 		if (result == 1)
 		{
@@ -121,8 +132,7 @@ public class MainActivity extends Activity
 		{ 
 			//获取状态
 			SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
-			int p2=1;
-			int result = sp.getInt("bigtitle", p2);
+			int result = sp.getInt("bigtitle",0);
 			if (result == 0)
 			{
 				int titlenn;
@@ -246,26 +256,39 @@ public class MainActivity extends Activity
 			super.handleMessage(msg); 
 		}
 	};
+	
+	class RequestDialogFragment extends DialogFragment
+	{
+		@Override
+		public Dialog onCreateDialog(Bundle savedInstanceState)
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+			builder.setTitle("中国城在线资源服务");
+			builder.setMessage("        欢迎您来到中国城游览者导览应用!\n        本程序提供在线资源服务，该服务将会为您联网提供有关图片与信息,且该服务本身免费提供。请注意，这个功能需要网络连接，如果您正在使用移动数据上网，可能会消耗一定的流量，由此产生的费用请至运营商咨询。\n        您可以自主选择是否启用该服务。");
+			builder.setPositiveButton("启用", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface p1, int p2)
+					{
+						// TODO: Implement this method
+						SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+						editor.putInt("bigtitle",1);
+						editor.putInt("request",1);
+						editor.commit();
+					}
+				});
+			builder.setNegativeButton("不启用", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface p1, int p2)
+					{
+						// TODO: Implement this method
+						SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+						editor.putInt("bigtitle",0);
+						editor.putInt("request",1);
+						editor.commit();
+					}
+				});
+
+			return builder.create();
+		}
+	}
 }
 
-/*class MyDialogFragment extends DialogFragment
-{
-	@Override
-	public Dialog onCreateDialog(Bundle savedInstanceState)
-	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setTitle("关于");
-		builder.setMessage("中国城 V2.1.2\n2018年1月28日\n\n更新日志：\n1、错误修复与性能改进。\n2、细节优化。\n\n©2018中国城人民政府 版权所有");
-		builder.setPositiveButton("好", new DialogInterface.OnClickListener() {
 
-				@Override
-				public void onClick(DialogInterface p1, int p2)
-				{
-					// TODO: Implement this method
-				}
-			});
-
-		return builder.create();
-	}
-
-}*/

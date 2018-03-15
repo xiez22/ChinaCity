@@ -24,7 +24,7 @@ public class GalleryActivity extends Activity
 	int currentlist=0;
 	int progressRemoved=0;
 	int downloadingData=0;
-	Timer timer;
+	Timer timer=null;
 
 	galleryData data[]=new galleryData[MAX_SIZE];
 
@@ -39,7 +39,7 @@ public class GalleryActivity extends Activity
 
 		//Download Files
 		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
-		int result = sp.getInt("bigtitle", 1);
+		int result = sp.getInt("bigtitle",0);
 		if (result == 1)
 		{
 			downloadAll();
@@ -207,6 +207,11 @@ public class GalleryActivity extends Activity
 				TextView textView1=(TextView) findViewById(R.id.subgalleryTextView2);
 				textView1.setText("请在设置中开启在线资源服务以欣赏在线图片。");
 			}
+			if (timer != null)
+			{
+				timer.cancel();
+				timer = null;
+			}
 			super.handleMessage(msg); 
 		}
 	};
@@ -215,8 +220,11 @@ public class GalleryActivity extends Activity
 	protected void onDestroy()
 	{
 		// TODO: Implement this method
-		timer.cancel();
-		timer = null;
+		if (timer != null)
+		{
+			timer.cancel();
+			timer = null;
+		}
 		super.onDestroy();
 	}
 
@@ -240,11 +248,17 @@ public class GalleryActivity extends Activity
 	public void downloadAll()
 	{
 		new Thread(new Runnable() {
-				@Override
 				public void run()
 				{
+					try{
 					int dr=0;
 					dr = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/galleryInfo.txt", "/Android/data/com.China.ChinaCity/cache/", "galleryInfo.txt");
+					//Save It
+					if (dr == 1)
+					{
+						if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/galleryInfo.txt", 2) == 1)
+							dr = 0;
+					}
 					if (dr == 0)
 					{
 						downloadsta = 1;
@@ -274,20 +288,21 @@ public class GalleryActivity extends Activity
 							{
 								data[datan - 1].smallTitle = list.get(a).toString();
 							}
-
 						}
 
 						//Create New Downloads
 						for (int i=0;i < datan;i++)
 						{
 							String addr=data[i].imageURL;
-							if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, 2) == 0){
+							if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, 2) == 0)
+							{
 								dr = internetutil.download(addr, "/Android/data/com.China.ChinaCity/cache/gallery/", data[i].address);
-							if (dr != 0)
-								break;
+								if (dr != 0)
+									break;
 							}
-						//Error Files
-						    else{
+							//Error Files
+						    else
+							{
 								String path = Environment.getExternalStorageDirectory().toString();//获得SDCard目录 
 								Bitmap bmpDefaultPic=null;
 								if (bmpDefaultPic == null)
@@ -299,7 +314,7 @@ public class GalleryActivity extends Activity
 									downloadedn--;
 								}
 							}
-						
+
 							downloadedn++;
 						}
 						if (dr != 0)
@@ -311,6 +326,13 @@ public class GalleryActivity extends Activity
 					}
 					else
 					{
+						downloadsta = 2;
+						Message message = new Message(); 
+						handlerException.sendMessage(message);
+					}
+					}
+					catch(Exception e){
+						e.printStackTrace();
 						downloadsta = 2;
 						Message message = new Message(); 
 						handlerException.sendMessage(message);

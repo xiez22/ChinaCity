@@ -25,8 +25,7 @@ public class HiActivity extends Activity
         setContentView(R.layout.hi);
 
 		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
-		int p2=1;
-		int result = sp.getInt("bigtitle", p2);
+		int result = sp.getInt("bigtitle", 0);
 		add_downloaded = sp.getInt("add_downloaded", 1);
 		if (result == 0)
 		{
