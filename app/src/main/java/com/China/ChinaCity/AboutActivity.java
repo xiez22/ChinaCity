@@ -110,10 +110,6 @@ public class AboutActivity extends Activity
 		if (isChecked)
 		{
 			//选中的处理
-			//List list=fileutil.read("ChinaCity/bug.txt");
-			//for(int i=0;list.get(i)!=null;i++){
-			//String temp=list.get(0).toString();
-			//Toast.makeText(AboutActivity.this,temp,Toast.LENGTH_SHORT).show();
 			SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 			editor.putInt("bigtitle",1);
 			editor.commit();
