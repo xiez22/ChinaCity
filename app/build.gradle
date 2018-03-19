@@ -8,8 +8,8 @@ android {
         applicationId "com.China.ChinaCity"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 14
-        versionName "2.4.0"
+        versionCode 15
+        versionName "2.4.1"
     }
     buildTypes {
         release {

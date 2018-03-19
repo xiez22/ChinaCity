@@ -8,6 +8,8 @@ import android.widget.*;
 import java.util.*;
 import com.China.ChinaCity.Line.*;
 import android.widget.AdapterView.*;
+import net.sf.json.*;
+import com.China.ChinaCity.Tool.*;
 
 public class SubListActivity extends Activity 
 {
@@ -44,13 +46,15 @@ public class SubListActivity extends Activity
 					TextView textView3=(TextView)findViewById(R.id.sublistTextView3);
 
 					textView1.setText("地铁线路列表");
-					textView2.setText("中国城共有12条地铁线路，39座车站");
+					textView2.setText("以下是地铁线路的列表");
 					textView3.setText("以下是地铁线路列表，点击线路可查看详情:");
 
 					//设置列表
 					intenttype = 2;
 					LineSearch linesearch=new LineSearch();
-					linesearch.initlog();
+					//JSON
+					JSONObject myjson=JSONObject.fromObject(fileutil.read("ChinaCity/lines.json").get(0).toString());
+					linesearch.initlog(myjson,0);
 					for (int i=1,n=0;i <= linesearch.line[0][0];i++)
 					{
 						if (linesearch.line[i][0] != 0)
@@ -71,7 +75,8 @@ public class SubListActivity extends Activity
 				
 				    int yyf=bundle.getInt("yyf");
 				    LineSearch linesearch=new LineSearch();
-					linesearch.initlog();
+					JSONObject myjson=JSONObject.fromObject(fileutil.read("ChinaCity/lines.json").get(0).toString());
+					linesearch.initlog(myjson,0);
 					//设置大字
 					TextView textView1=(TextView)findViewById(R.id.sublistTextView1);
 					TextView textView2=(TextView)findViewById(R.id.sublistTextView2);
@@ -98,7 +103,8 @@ public class SubListActivity extends Activity
 				    int yyf=bundle.getInt("yyf");
 					yyftemp=yyf;
 				    LineSearch linesearch=new LineSearch();
-					linesearch.initlog();
+					JSONObject myjson=JSONObject.fromObject(fileutil.read("ChinaCity/lines.json").get(0).toString());
+					linesearch.initlog(myjson,0);
 					//设置大字
 					TextView textView1=(TextView)findViewById(R.id.sublistTextView1);
 					TextView textView2=(TextView)findViewById(R.id.sublistTextView2);
@@ -153,7 +159,8 @@ public class SubListActivity extends Activity
 		intent1.putExtra("zmt",1);
 	    intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		LineSearch linesearch=new LineSearch();
-		linesearch.initlog();
+		JSONObject myjson=JSONObject.fromObject(fileutil.read("ChinaCity/lines.json").get(0).toString());
+		linesearch.initlog(myjson,0);
 		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 		editor.putString("startstation",linesearch.slist[yyftemp].name);
 		editor.commit();
@@ -165,7 +172,8 @@ public class SubListActivity extends Activity
 		intent1.putExtra("zmt",1);
 	    intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		LineSearch linesearch=new LineSearch();
-		linesearch.initlog();
+		JSONObject myjson=JSONObject.fromObject(fileutil.read("ChinaCity/lines.json").get(0).toString());
+		linesearch.initlog(myjson,0);
 		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 		editor.putString("endstation",linesearch.slist[yyftemp].name);
 		editor.commit();

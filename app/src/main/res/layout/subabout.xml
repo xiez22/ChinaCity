@@ -187,7 +187,7 @@
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
-					android:text="中国城 2.4.0 2018年3月16日\n\n更新日志:\n1、在线资源服务正式启用。\n2、城市介绍界面改版。\n3、统一标题栏界面风格，增加了返回按钮。\n4、减少了部分本地资源的使用。\n5、线路列表页面增加了设为起点和终点的功能。\n6、增加了城市美景欣赏页面，您可以在线欣赏图片啦。\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
+					android:text="中国城 2.4.1 2018年3月19日\n\n更新日志:\n1、在线资源服务正式启用。\n2、城市介绍界面改版。\n3、统一标题栏界面风格，增加了返回按钮。\n4、减少了部分本地资源的使用。\n5、线路列表页面增加了设为起点和终点的功能。\n6、增加了城市美景欣赏页面，您可以在线欣赏图片啦。\n6、地铁线路查询启用外部数据源，可以联网更新地图数据。\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
 					android:textSize="15sp"
 					android:textColor="#000000"
 					android:paddingLeft="10dp"

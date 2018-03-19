@@ -129,7 +129,7 @@ public class MainActivity extends Activity
 	//Handlers
 	public Handler handler1 = new Handler() { 
 		public void handleMessage(Message msg)
-		{ 
+		{
 			//获取状态
 			SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
 			int result = sp.getInt("bigtitle",0);

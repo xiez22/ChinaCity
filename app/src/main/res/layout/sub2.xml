@@ -2,7 +2,8 @@
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="match_parent"
-	android:layout_width="match_parent">
+	android:layout_width="match_parent"
+	android:id="@+id/sub2RelativeLayout2">
 
 	<LinearLayout
 		android:layout_height="match_parent"
@@ -95,6 +96,17 @@
 				android:textStyle="bold"
 				android:elevation="0dp"
 				android:onClick="onClickSub2ButtonNotice"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:text="更新线路"
+				android:background="#FFFFFF"
+				android:layout_weight="1.0"
+				android:textColor="#0F60F7"
+				android:textStyle="bold"
+				android:elevation="0dp"
+				android:onClick="onClickSub2ButtonUpdate"/>
 
 		</LinearLayout>
 
@@ -217,7 +229,7 @@
 		android:layout_alignParentBottom="true"
 		android:gravity="center"
 		android:layout_centerHorizontal="true"
-		android:textSize="12sp"
+		android:textSize="10sp"
 		android:layout_marginBottom="7dp"/>
 
 </RelativeLayout>
