@@ -9,6 +9,7 @@ import com.China.ChinaCity.Tool.*;
 import java.util.*;
 import android.view.animation.*;
 import android.graphics.*;
+import net.sf.json.*;
 
 public class GalleryActivity extends Activity 
 {
@@ -39,7 +40,7 @@ public class GalleryActivity extends Activity
 
 		//Download Files
 		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
-		int result = sp.getInt("bigtitle",0);
+		int result = sp.getInt("bigtitle", 0);
 		if (result == 1)
 		{
 			downloadAll();
@@ -250,88 +251,107 @@ public class GalleryActivity extends Activity
 		new Thread(new Runnable() {
 				public void run()
 				{
-					try{
-					int dr=0;
-					dr = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/galleryInfo.txt", "/Android/data/com.China.ChinaCity/cache/", "galleryInfo.txt");
-					//Save It
-					if (dr == 1)
+					try
 					{
-						if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/galleryInfo.txt", 2) == 1)
-							dr = 0;
-					}
-					if (dr == 0)
-					{
-						downloadsta = 1;
-						//Analysis
-						List list=fileutil.read("Android/data/com.China.ChinaCity/cache/galleryInfo.txt");
-						for (int a=0,b=0;a < list.size();b++,a++)
+						int dr=0;
+						dr = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/galleryInfo.json", "/Android/data/com.China.ChinaCity/cache/", "galleryInfo.json");
+						//Save It
+						if (dr == 1)
 						{
-							if (b == 4)
-							{
-								b = 0;
-							}
-							if (b == 0)
-							{
-								datan += 1;
-								data[datan - 1].imageURL = list.get(a).toString();
-
-							}
-							else if (b == 1)
-							{
-								data[datan - 1].address = list.get(a).toString();
-							}
-							else if (b == 2)
-							{
-								data[datan - 1].bigTitle = list.get(a).toString();
-							}
-							else if (b == 3)
-							{
-								data[datan - 1].smallTitle = list.get(a).toString();
-							}
+							if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/galleryInfo.json", 2) == 1)
+								dr = 0;
 						}
-
-						//Create New Downloads
-						for (int i=0;i < datan;i++)
+						if (dr == 0)
 						{
-							String addr=data[i].imageURL;
-							if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, 2) == 0)
+							downloadsta = 1;
+							//Analysis
+							try
 							{
-								dr = internetutil.download(addr, "/Android/data/com.China.ChinaCity/cache/gallery/", data[i].address);
-								if (dr != 0)
-									break;
-							}
-							//Error Files
-						    else
-							{
-								String path = Environment.getExternalStorageDirectory().toString();//获得SDCard目录 
-								Bitmap bmpDefaultPic=null;
-								if (bmpDefaultPic == null)
-									bmpDefaultPic = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, null);
-								if (bmpDefaultPic == null)
+								JSONObject myjson=JSONObject.fromObject(fileutil.read("Android/data/com.China.ChinaCity/cache/galleryInfo.json").get(0).toString());
+								JSONArray myarray=myjson.getJSONArray("galleryInfo");
+								for (int i=0;i < myarray.size();i++)
 								{
-									fileutil.write(null, "Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, 3);
-									i--;
-									downloadedn--;
+									data[i].address = myarray.getJSONObject(i).get("address").toString();
+									data[i].imageURL = myarray.getJSONObject(i).get("imageURL").toString();
+									data[i].bigTitle = myarray.getJSONObject(i).get("bigTitle").toString();
+									data[i].smallTitle = myarray.getJSONObject(i).get("smallTitle").toString();
+									datan++;
 								}
 							}
+							catch (Exception e)
+							{
+								e.printStackTrace();
+							}
+							/*
+							 for (int a=0,b=0;a < list.size();b++,a++)
+							 {
+							 if (b == 4)
+							 {
+							 b = 0;
+							 }
+							 if (b == 0)
+							 {
+							 datan += 1;
+							 data[datan - 1].imageURL = list.get(a).toString();
 
-							downloadedn++;
+							 }
+							 else if (b == 1)
+							 {
+							 data[datan - 1].address = list.get(a).toString();
+							 }
+							 else if (b == 2)
+							 {
+							 data[datan - 1].bigTitle = list.get(a).toString();
+							 }
+							 else if (b == 3)
+							 {
+							 data[datan - 1].smallTitle = list.get(a).toString();
+							 }
+							 }*/
+
+							//Create New Downloads
+							for (int i=0;i < datan;i++)
+							{
+								String addr=data[i].imageURL;
+								if (fileutil.write(null, "Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, 2) == 0)
+								{
+									dr = internetutil.download(addr, "/Android/data/com.China.ChinaCity/cache/gallery/", data[i].address);
+									if (dr != 0)
+										break;
+								}
+								//Error Files
+								else
+								{
+									String path = Environment.getExternalStorageDirectory().toString();//获得SDCard目录 
+									Bitmap bmpDefaultPic=null;
+									if (bmpDefaultPic == null)
+										bmpDefaultPic = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, null);
+									if (bmpDefaultPic == null)
+									{
+										fileutil.write(null, "Android/data/com.China.ChinaCity/cache/gallery/" + data[i].address, 3);
+										i--;
+										downloadedn--;
+									}
+								}
+
+								downloadedn++;
+							}
+							if (dr != 0)
+							{
+								downloadsta = 2;
+								Message message = new Message(); 
+								handlerException.sendMessage(message);
+							}
 						}
-						if (dr != 0)
+						else
 						{
 							downloadsta = 2;
 							Message message = new Message(); 
 							handlerException.sendMessage(message);
 						}
 					}
-					else
+					catch (Exception e)
 					{
-						downloadsta = 2;
-						Message message = new Message(); 
-						handlerException.sendMessage(message);
-					}
-					}
-					catch(Exception e){
 						e.printStackTrace();
 						downloadsta = 2;
 						Message message = new Message(); 
