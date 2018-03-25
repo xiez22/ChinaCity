@@ -3,6 +3,9 @@ import java.net.*;
 import java.io.*;
 import android.util.*;
 import android.os.*;
+import android.app.*;
+import android.webkit.*;
+import android.net.*;
 
 public class internetutil
 {
@@ -104,4 +107,5 @@ public class internetutil
 			return 1;
 		}
     }
+	
 }

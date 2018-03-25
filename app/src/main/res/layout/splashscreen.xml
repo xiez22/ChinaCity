@@ -53,7 +53,8 @@
 			android:layout_width="wrap_content"
 			android:text="V2.4.1     Designed by @ligongzzz"
 			android:layout_marginBottom="25dp"
-			android:textSize="10sp"/>
+			android:textSize="10sp"
+			android:id="@+id/splashscreenTextView1"/>
 
 	</LinearLayout>
 

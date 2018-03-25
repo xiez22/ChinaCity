@@ -52,12 +52,13 @@ public class HiActivity extends Activity
 						if (add_downloaded == 0)
 						{
 							dr = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/DownloadURL.txt", "/ChinaCity/", "DownloadURL.txt");
-							SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
-							editor.putInt("add_downloaded", 1);
-							editor.commit();
+							
 						}
 						if (dr == 0)
 						{
+							SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+							editor.putInt("add_downloaded", 1);
+							editor.commit();
 							downloadsta = 1;
 							Message message = new Message(); 
 							message.what = 1; 

@@ -29,6 +29,7 @@ public class SplashActivity extends Activity
 		request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
         request.setVisibleInDownloadsUi(false);*/
 		
+		
 		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 		editor.putInt("add_downloaded",0);
 		editor.commit();
@@ -46,6 +47,9 @@ public class SplashActivity extends Activity
 		else
 		{
 			setContentView(R.layout.splashscreen);
+			TextView textView=(TextView)findViewById(R.id.splashscreenTextView1);
+			textView.setText("V"+getResources().getString(R.string.version)+"   ©2018 ligongzzz");
+			
 			TimerTask task=new TimerTask(){
 				public void run()
 				{
