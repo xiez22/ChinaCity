@@ -25,6 +25,7 @@ public class GalleryActivity extends Activity
 	int currentlist=0;
 	int progressRemoved=0;
 	int downloadingData=0;
+	int autoChange=1;
 	Timer timer=null;
 
 	galleryData data[]=new galleryData[MAX_SIZE];
@@ -74,7 +75,9 @@ public class GalleryActivity extends Activity
 			Message message = new Message(); 
 			handlerException.sendMessage(message);
 		}
-
+		
+		SharedPreferences sp1 = getSharedPreferences("temp", Activity.MODE_PRIVATE);
+		autoChange = sp1.getInt("autoChange", 1);
     }
 
 	//点击
@@ -141,13 +144,20 @@ public class GalleryActivity extends Activity
 				textView.setText(data[currentlist].bigTitle);
 				Animation animation=AnimationUtils.loadAnimation(GalleryActivity.this, R.anim.alpha_anim_appear);
 				textView.startAnimation(animation);
+				textView=(TextView) findViewById(R.id.subgalleryTextView2);
+				textView.setText(data[currentlist].smallTitle);
+				textView.setVisibility(View.INVISIBLE);
 			}
 			else if (status == 5)
 			{
 				TextView textView=(TextView) findViewById(R.id.subgalleryTextView2);
+				textView.setVisibility(View.VISIBLE);
 				textView.setText(data[currentlist].smallTitle);
 				Animation animation=AnimationUtils.loadAnimation(GalleryActivity.this, R.anim.alpha_anim_appear);
 				textView.startAnimation(animation);
+			}
+			else if(status==6&&autoChange==0){
+				status--;
 			}
 			else if (status == MAX_TIME - 9)
 			{
@@ -170,7 +180,7 @@ public class GalleryActivity extends Activity
 			else if (status == MAX_TIME - 4)
 			{
 				TextView textView=(TextView) findViewById(R.id.subgalleryTextView2);
-				textView.setText("");
+				textView.setVisibility(View.INVISIBLE);
 			}
 			else if (status == MAX_TIME - 2)
 			{
@@ -282,32 +292,6 @@ public class GalleryActivity extends Activity
 							{
 								e.printStackTrace();
 							}
-							/*
-							 for (int a=0,b=0;a < list.size();b++,a++)
-							 {
-							 if (b == 4)
-							 {
-							 b = 0;
-							 }
-							 if (b == 0)
-							 {
-							 datan += 1;
-							 data[datan - 1].imageURL = list.get(a).toString();
-
-							 }
-							 else if (b == 1)
-							 {
-							 data[datan - 1].address = list.get(a).toString();
-							 }
-							 else if (b == 2)
-							 {
-							 data[datan - 1].bigTitle = list.get(a).toString();
-							 }
-							 else if (b == 3)
-							 {
-							 data[datan - 1].smallTitle = list.get(a).toString();
-							 }
-							 }*/
 
 							//Create New Downloads
 							for (int i=0;i < datan;i++)
@@ -336,7 +320,7 @@ public class GalleryActivity extends Activity
 
 								downloadedn++;
 							}
-							if (dr != 0)
+							if (dr != 0&&downloadedn==0)
 							{
 								downloadsta = 2;
 								Message message = new Message(); 

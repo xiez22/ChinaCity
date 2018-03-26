@@ -125,7 +125,7 @@ public class Sub1Activity extends Activity
 					bmpDefaultPic2 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_gallery.jpg", null);
 				iv2.setImageBitmap(bmpDefaultPic2);
 				
-				if(true){
+				if(downloaded==1){
 				Animation animation=AnimationUtils.loadAnimation(Sub1Activity.this, R.anim.alpha_anim_appear);
 				iv.startAnimation(animation);
 				iv1.startAnimation(animation);

@@ -30,6 +30,7 @@ public class AboutActivity extends Activity
 		//设置开启屏控件
 		Switch mSwitch=(Switch)findViewById(R.id.subaboutSwitch1);
 		Switch mSwitch1=(Switch)findViewById(R.id.subaboutSwitch2);
+		Switch mSwitch3=(Switch)findViewById(R.id.subaboutSwitch3);
 		SharedPreferences sp = getSharedPreferences("temp", Activity.MODE_PRIVATE);
 		int p2=0;
 		int result = sp.getInt("splashscreen", p2);
@@ -54,6 +55,16 @@ public class AboutActivity extends Activity
 		else if (result1 == 1)
 		{
 			mSwitch1.setChecked(true);
+		}
+		sp1 = getSharedPreferences("temp", Activity.MODE_PRIVATE);
+		int result2 = sp1.getInt("autoChange",1);
+		if (result2== 0)
+		{
+			mSwitch3.setChecked(false);
+		}
+		else if (result2 == 1)
+		{
+			mSwitch3.setChecked(true);
 		}
 		//Download
 		if (result1 == 1)
@@ -136,6 +147,29 @@ public class AboutActivity extends Activity
 						//Toast.makeText(AboutActivity.this, "已关闭在线资源服务。", Toast.LENGTH_SHORT).show();
 						SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 						editor.putInt("bigtitle", 0);
+						editor.commit();
+					}
+
+				}
+			});
+		mSwitch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+				{
+					if (isChecked)
+					{
+						//选中的处理
+						SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+						editor.putInt("autoChange", 1);
+						editor.commit();
+						//Toast.makeText(AboutActivity.this, "This activity has been killed due to some unknown errors.(Thank you for touching off this bug written by the UP on purpose.You can have a look at the code on GitHub.com for more bugs and pull it to the UP.)", Toast.LENGTH_LONG).show();
+					} 
+					else
+					{
+						//没有选中的处理
+						//Toast.makeText(AboutActivity.this, "已关闭在线资源服务。", Toast.LENGTH_SHORT).show();
+						SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
+						editor.putInt("autoChange", 0);
 						editor.commit();
 					}
 
