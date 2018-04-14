@@ -117,10 +117,13 @@ public class HiActivity extends Activity
 		{
 			Toast.makeText(this, "抱歉，出现了一些问题。", Toast.LENGTH_SHORT).show();
 		}
+		HiDialogFragment f = new HiDialogFragment();
+		f.show(getFragmentManager(), "mydialog");
+		/*
 		String DownloadURL=list.get(0).toString();
 		Uri uri = Uri.parse(DownloadURL);
     	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		startActivity(intent);
+		startActivity(intent);*/
 	}
 
 	public void onClickSubHiButton2(View view)
@@ -175,4 +178,25 @@ public class HiActivity extends Activity
 			super.handleMessage(msg); 
 		}
 	};
+}
+
+class HiDialogFragment extends DialogFragment
+{
+	@Override
+	public Dialog onCreateDialog(Bundle savedInstanceState)
+	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setTitle("已暂停开放地图下载");
+		builder.setMessage("由于技术原因，暂停开放中国城地图下载。具体开放时间请关注作者B站动态哦(´-ω-`)。");
+		builder.setPositiveButton("好", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface p1, int p2)
+				{
+					// TODO: Implement this method
+				}
+			});
+
+		return builder.create();
+	}
 }

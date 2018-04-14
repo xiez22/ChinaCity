@@ -13,22 +13,13 @@ import com.China.ChinaCity.Tool.*;
 
 public class SplashActivity extends Activity 
 {
+	//Constant
+	final int splashTime=1500;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-		
-		//Download Files
-		/*Context mContext=getApplicationContext();
-		String downloadUrl ="https://github.com/ligongzzz/ChinaCity/blob/master/README.md";
-		DownloadManager.Request request=new DownloadManager.Request(Uri.parse(downloadUrl));
-		String fileName ="file.txt";
-		request.setDestinationInExternalPublicDir("/ChinaCity/", fileName);
-		DownloadManager downloadManager= (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
-		downloadManager.enqueue(request);
-		request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
-        request.setVisibleInDownloadsUi(false);*/
-		
 		
 		SharedPreferences.Editor editor= getSharedPreferences("temp", MODE_WORLD_WRITEABLE).edit();
 		editor.putInt("add_downloaded",0);
@@ -60,7 +51,7 @@ public class SplashActivity extends Activity
 				}
 			};
 			Timer timer=new Timer();
-			timer.schedule(task, 2000);
+			timer.schedule(task,splashTime);
 		}
     }
 	Handler handler= new Handler() { 
