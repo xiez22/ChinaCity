@@ -17,6 +17,7 @@ public class HiActivity extends Activity
 	int downloadsta1=0;
 	int downloaded=0;
 	int add_downloaded=0;
+	int hiTime=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -117,8 +118,16 @@ public class HiActivity extends Activity
 		{
 			Toast.makeText(this, "抱歉，出现了一些问题。", Toast.LENGTH_SHORT).show();
 		}
+		if(hiTime<10){
 		HiDialogFragment f = new HiDialogFragment();
 		f.show(getFragmentManager(), "mydialog");
+		}
+		else{
+			String DownloadURL=list.get(0).toString();
+			Uri uri = Uri.parse(DownloadURL);
+			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+			startActivity(intent);
+		}
 		/*
 		String DownloadURL=list.get(0).toString();
 		Uri uri = Uri.parse(DownloadURL);
@@ -131,6 +140,14 @@ public class HiActivity extends Activity
 		Uri uri = Uri.parse("http://www.minecraft.net");
     	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		startActivity(intent);
+	}
+	
+	public void onClickHiHi(View view)
+	{
+		hiTime++;
+		if(hiTime>=10){
+			Toast.makeText(this,"Developer mode has been opened!",Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	Handler handler= new Handler() { 
