@@ -97,6 +97,11 @@ public class Sub1Activity extends Activity
     	startActivity(intent);
 		}
 	}
+	
+	public void onClickSub1ButtonNews(View view)
+	{
+		Toast.makeText(this,"该功能尚未开发完成，敬请期待！",Toast.LENGTH_LONG).show();
+	}
 
 	public void onClickSub1ButtonBack(View view)
 	{

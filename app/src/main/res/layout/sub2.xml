@@ -100,7 +100,7 @@
 			<Button
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
-				android:text="更新线路"
+				android:text="更新线路图"
 				android:background="#FFFFFF"
 				android:layout_weight="1.0"
 				android:textColor="#0F60F7"

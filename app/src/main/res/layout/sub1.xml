@@ -169,7 +169,7 @@
 				android:layout_width="match_parent"
 				android:layout_marginTop="10dp"
 				android:elevation="3dp"
-				android:layout_marginBottom="50dp"
+				android:layout_marginBottom="10dp"
 				android:background="#7B7B7B"
 				android:onClick="onClickSub1ButtonGallery">
 
@@ -198,6 +198,43 @@
 					android:layout_width="wrap_content"
 					android:layout_centerInParent="true"
 					android:id="@+id/sub1TextView3"/>
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_height="150dp"
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp"
+				android:elevation="3dp"
+				android:layout_marginBottom="50dp"
+				android:background="#7B7B7B"
+				android:onClick="onClickSub1ButtonNews">
+
+				<ImageView
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"
+					android:id="@+id/sub1ImageView4"
+					android:adjustViewBounds="true"
+					android:scaleType="centerCrop"
+					android:background="#787878"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceLarge"
+					android:layout_width="wrap_content"
+					android:text="城市动态"
+					android:layout_alignBottom="@id/sub1ImageView4"
+					android:layout_marginBottom="10dp"
+					android:layout_marginLeft="10dp"
+					android:textSize="30sp"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_centerInParent="true"
+					android:id="@+id/sub1TextView4"/>
 
 			</RelativeLayout>
 
