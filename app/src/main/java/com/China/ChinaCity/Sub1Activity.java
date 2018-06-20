@@ -35,10 +35,12 @@ public class Sub1Activity extends Activity
 					@Override
 					public void run()
 					{
-						int dr=0;int dr1=0;int dr2=0;
+						int dr=0;int dr1=0;int dr2=0;int dr3=0;
 						int filesta=fileutil.write(null, "/Android/data/com.China.ChinaCity/cache/image_map.jpg", 2);
 						int filesta1=fileutil.write(null, "/Android/data/com.China.ChinaCity/cache/image_area.jpg", 2);
 						int filesta2=fileutil.write(null, "/Android/data/com.China.ChinaCity/cache/image_gallery.jpg", 2);
+						int filesta3=fileutil.write(null, "/Android/data/com.China.ChinaCity/cache/image_news.jpg", 2);
+						
 						if (filesta == 0)
 						{
 							downloaded=1;
@@ -54,7 +56,12 @@ public class Sub1Activity extends Activity
 							downloaded=1;
 							dr2 = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/image_gallery.jpg", "/Android/data/com.China.ChinaCity/cache/", "image_gallery.jpg");
 						}
-						if (dr == 0 && dr1 == 0&&dr2==0)
+						if (filesta3== 0)
+						{
+							downloaded=1;
+							dr3 = internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/image_news.jpg", "/Android/data/com.China.ChinaCity/cache/", "image_news.jpg");
+						}
+						if (dr == 0 && dr1 == 0&&dr2==0&&dr3==0)
 						{
 							downloadsta = 1;
 							Message message = new Message(); 
@@ -71,6 +78,8 @@ public class Sub1Activity extends Activity
 			textView2.setText("需要开启在线资源服务以显示图片");
 			TextView textView3=(TextView)findViewById(R.id.sub1TextView3);
 			textView3.setText("需要开启在线资源服务以显示图片");
+			TextView textView4=(TextView)findViewById(R.id.sub1TextView4);
+			textView4.setText("需要开启在线资源服务以显示图片");
 		}
     }
 
@@ -129,12 +138,18 @@ public class Sub1Activity extends Activity
 				if (bmpDefaultPic2 == null)
 					bmpDefaultPic2 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_gallery.jpg", null);
 				iv2.setImageBitmap(bmpDefaultPic2);
+				Bitmap bmpDefaultPic3=null;
+				ImageView  iv3 = (ImageView)findViewById(R.id.sub1ImageView4);
+				if (bmpDefaultPic3 == null)
+					bmpDefaultPic3 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_news.jpg", null);
+				iv3.setImageBitmap(bmpDefaultPic3);
 				
 				if(downloaded==1){
 				Animation animation=AnimationUtils.loadAnimation(Sub1Activity.this, R.anim.alpha_anim_appear);
 				iv.startAnimation(animation);
 				iv1.startAnimation(animation);
 				iv2.startAnimation(animation);
+				iv3.startAnimation(animation);
 				}
 			}
 			super.handleMessage(msg); 
