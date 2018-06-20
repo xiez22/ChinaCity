@@ -60,6 +60,11 @@
 			android:name=".Sub1Sub1Activity">
 		</activity>
 		<activity
+		    android:label="News"
+			android:theme="@style/MAINTheme"
+			android:name=".NewsActivity">
+		</activity>
+		<activity
 		    android:label="Gallery"
 			android:theme="@style/GalleryTheme"
 			android:name=".GalleryActivity">
