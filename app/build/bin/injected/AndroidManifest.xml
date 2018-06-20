@@ -95,6 +95,13 @@
 		</activity>
 
 		<activity
+			android:label="NewsSub1"
+			android:theme="@style/MAINTheme"
+			android:name=".NewsSub1Activity">
+
+		</activity>
+
+		<activity
 			android:label="Gallery"
 			android:theme="@style/GalleryTheme"
 			android:name=".GalleryActivity">

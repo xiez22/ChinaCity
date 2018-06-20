@@ -10,6 +10,7 @@ import android.widget.*;
 import com.China.ChinaCity.Tool.*;
 import net.sf.json.*;
 import java.util.*;
+import android.widget.AdapterView.*;
 
 public class NewsActivity extends Activity 
 {
@@ -17,6 +18,7 @@ public class NewsActivity extends Activity
 	int downloadsta=0;
 	ProgressDialog dialog;
 	ArrayList<News> newsList;
+	ListView listView;
 
 	protected void onCreate(Bundle savedInstanceState)
     {
@@ -25,7 +27,9 @@ public class NewsActivity extends Activity
 
 		//News
 		newsList = new ArrayList<News>();
-
+		listView=(ListView)findViewById(R.id.subnewsListView1);
+		
+		
 		//Get News
 		getNews(newsList);
 
@@ -116,20 +120,36 @@ public class NewsActivity extends Activity
 			if (downloadsta == 1)
 			{
 				//Analysis
-				JSONArray myjson=JSONArray.fromObject(fileutil.read("Android/data/com.China.ChinaCity/cache/news.json").get(0).toString());
+				final JSONArray myjson=JSONArray.fromObject(fileutil.read("Android/data/com.China.ChinaCity/cache/news.json").get(0).toString());
 				for (int i=myjson.size()-1;i>=0;i--)
 				{
 					JSONObject myobject=myjson.getJSONObject(i);
 					newsList.add(new News(myobject.getString("title"), myobject.getString("date"), myobject.getString("kind"), myobject.getString("content")));
 				}
+				//列表统一控制器
+				listView.setOnItemClickListener(new OnItemClickListener() {
+
+						public void onItemClick(AdapterView<?> l, View v, int position, long id)
+						{
+							JSONObject myobject=myjson.getJSONObject(myjson.size()-position-1);
+							Intent intent = new Intent(NewsActivity.this, NewsSub1Activity.class);
+							intent.putExtra("t1",myobject.getString("title"));
+							intent.putExtra("t2","日期:"+myobject.getString("date")+"\n类别:"+myobject.getString("kind"));
+							intent.putExtra("t3",myobject.getString("content"));
+						    startActivity(intent);
+						}
+					});
 			}
 			else{
 				newsList.add(new News("加载失败","很久很久以前...","错误","网络已经中断，请检查您的网络连接。"));
 			}
 			//Create List
 			NewsAdapter adapter=new NewsAdapter(NewsActivity.this, newsList);
-			ListView listView=(ListView)findViewById(R.id.subnewsListView1);
+			
 			listView.setAdapter(adapter);
+			
+			
+			
 		}
 	};
 }

@@ -80,6 +80,9 @@ public final class R {
         public static final int sublistTextView2=0x7f080022;
         public static final int sublistTextView3=0x7f080024;
         public static final int subnewsListView1=0x7f080031;
+        public static final int subnewssub1TextView1=0x7f080032;
+        public static final int subnewssub1TextView2=0x7f080033;
+        public static final int subnewssub1TextView3=0x7f080034;
     }
     public static final class layout {
         public static final int hi=0x7f030000;
@@ -94,6 +97,7 @@ public final class R {
         public static final int subabout=0x7f030009;
         public static final int subgallery=0x7f03000a;
         public static final int subnews=0x7f03000b;
+        public static final int subnews_sub1=0x7f03000c;
     }
     public static final class raw {
         public static final int lines=0x7f050000;

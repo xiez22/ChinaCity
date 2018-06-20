@@ -54,7 +54,9 @@
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:padding="10dp"
 		android:textColor="#000000"
-		android:id="@+id/newsentryTextView4"/>
+		android:id="@+id/newsentryTextView4"
+		android:maxLines="4"
+		android:ellipsize="end"/>
 
 	<TextView
 		android:layout_width="wrap_content"
