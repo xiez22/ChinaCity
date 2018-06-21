@@ -27,9 +27,9 @@ public class NewsActivity extends Activity
 
 		//News
 		newsList = new ArrayList<News>();
-		listView=(ListView)findViewById(R.id.subnewsListView1);
-		
-		
+		listView = (ListView)findViewById(R.id.subnewsListView1);
+
+
 		//Get News
 		getNews(newsList);
 
@@ -97,15 +97,24 @@ public class NewsActivity extends Activity
 				@Override
 				public void run()
 				{
-					int dr=internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/news.json", "/Android/data/com.China.ChinaCity/cache/", "news.json");
-					if (dr == 0)
+					//Request
+					SharedPreferences sp1= getSharedPreferences("temp", Activity.MODE_PRIVATE);
+					int result1 = sp1.getInt("bigtitle", 0);//Internet Request
+
+					if (result1 == 1)
 					{
-						downloadsta = 1;
+						int dr=internetutil.download("https://coding.net/u/ligongzzz/p/ChinaResources/git/raw/master/src/news.json", "/Android/data/com.China.ChinaCity/cache/", "news.json");
+						if (dr == 0)
+						{
+							downloadsta = 1;
+						}
+						else
+						{
+							downloadsta = 2;
+						}
 					}
 					else
-					{
-						downloadsta = 2;
-					}
+						downloadsta=3;
 					Message message = new Message(); 
 					handler.sendMessage(message);
 				}
@@ -121,7 +130,7 @@ public class NewsActivity extends Activity
 			{
 				//Analysis
 				final JSONArray myjson=JSONArray.fromObject(fileutil.read("Android/data/com.China.ChinaCity/cache/news.json").get(0).toString());
-				for (int i=myjson.size()-1;i>=0;i--)
+				for (int i=myjson.size() - 1;i >= 0;i--)
 				{
 					JSONObject myobject=myjson.getJSONObject(i);
 					newsList.add(new News(myobject.getString("title"), myobject.getString("date"), myobject.getString("kind"), myobject.getString("content")));
@@ -131,25 +140,30 @@ public class NewsActivity extends Activity
 
 						public void onItemClick(AdapterView<?> l, View v, int position, long id)
 						{
-							JSONObject myobject=myjson.getJSONObject(myjson.size()-position-1);
+							JSONObject myobject=myjson.getJSONObject(myjson.size() - position - 1);
 							Intent intent = new Intent(NewsActivity.this, NewsSub1Activity.class);
-							intent.putExtra("t1",myobject.getString("title"));
-							intent.putExtra("t2","日期:"+myobject.getString("date")+"\n类别:"+myobject.getString("kind"));
-							intent.putExtra("t3",myobject.getString("content"));
+							intent.putExtra("t1", myobject.getString("title"));
+							intent.putExtra("t2", "日期:" + myobject.getString("date") + "\n类别:" + myobject.getString("kind"));
+							intent.putExtra("t3", myobject.getString("content"));
 						    startActivity(intent);
 						}
 					});
 			}
-			else{
-				newsList.add(new News("加载失败","很久很久以前...","错误","网络已经中断，请检查您的网络连接。"));
+			else if(downloadsta==2)
+			{
+				newsList.add(new News("加载失败", "很久很久以前...", "错误", "网络已经中断，请检查您的网络连接。"));
+			}
+			else
+			{
+				newsList.add(new News("在线资源服务已关闭", "很久很久以前...", "错误", "在线资源服务尚未启用，请前往“设置与关于”菜单中启用该服务。"));
 			}
 			//Create List
 			NewsAdapter adapter=new NewsAdapter(NewsActivity.this, newsList);
-			
+
 			listView.setAdapter(adapter);
-			
-			
-			
+
+
+
 		}
 	};
 }

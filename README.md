@@ -1,6 +1,6 @@
 # 中国城官方导览应用
 ## 下载链接
-[中国城游览者应用 V2.5.0 beta1](app/build/bin/app.apk?raw=true)
+[中国城游览者应用 V2.5.0 beta2](app/build/bin/app.apk?raw=true)
 ## 简介
 - 中国城官方应用更新到2.5.0 beta1版本啦（｡ò ∀ ó｡）
 - 通过该APP，您可以：看简介、查地铁。
