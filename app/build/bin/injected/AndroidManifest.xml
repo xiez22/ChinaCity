@@ -2,8 +2,8 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.China.ChinaCity"
-	android:versionCode="15"
-	android:versionName="2.5.0 beta2">
+	android:versionCode="16"
+	android:versionName="2.5.0 beta3">
 
 	<uses-sdk
 		android:minSdkVersion="14"
@@ -130,6 +130,9 @@
 
 	<uses-permission
 		android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+	<uses-permission
+		android:name="android.permission.VIBRATE"/>
 
 </manifest>
 

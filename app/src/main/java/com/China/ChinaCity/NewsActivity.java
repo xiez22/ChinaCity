@@ -145,6 +145,11 @@ public class NewsActivity extends Activity
 							intent.putExtra("t1", myobject.getString("title"));
 							intent.putExtra("t2", "日期:" + myobject.getString("date") + "\n类别:" + myobject.getString("kind"));
 							intent.putExtra("t3", myobject.getString("content"));
+							
+							//Duang......
+							Vibrator vibrator = (Vibrator)NewsActivity.this.getSystemService(NewsActivity.this.VIBRATOR_SERVICE);
+							vibrator.vibrate(6);
+							
 						    startActivity(intent);
 						}
 					});

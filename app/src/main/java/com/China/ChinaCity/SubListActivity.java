@@ -83,7 +83,7 @@ public class SubListActivity extends Activity
 					TextView textView3=(TextView)findViewById(R.id.sublistTextView3);
 
 					textView1.setText(Integer.toString(yyf)+"号线");
-					textView2.setText(Integer.toString(yyf)+"号线的运行区间为"+linesearch.destination[yyf][0]+"至"+linesearch.destination[yyf][1]);
+					textView2.setText(Integer.toString(yyf)+"号线分为"+linesearch.destination[yyf][0]+"方向和"+linesearch.destination[yyf][1]+"方向");
 					textView3.setText("以下是该线路的车站列表，点击车站可查看详情:");
 
 					//设置表

@@ -230,7 +230,7 @@
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
-					android:text="中国城 2.5.0 beta2 2018年6月20日\n\n更新日志:\n1、新增了“城市动态”板块，您可以在中国城APP中看最新动态了！\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
+					android:text="中国城 2.5.0 beta3 2018年6月29日\n\n更新日志:\n1、新增了“城市动态”板块，您可以在中国城APP中看最新动态了！\n2、解决了Android O的兼容性问题。\n\n本程序拥有Github支持，您可以在github.com上查看源代码并下载本应用的最新版本。"
 					android:textSize="15sp"
 					android:textColor="#000000"
 					android:paddingLeft="10dp"
