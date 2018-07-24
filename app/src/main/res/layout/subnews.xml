@@ -9,7 +9,7 @@
 		android:layout_height="60dp"
 		android:layout_width="match_parent"
 		android:orientation="horizontal"
-		android:background="#A70900"
+		android:background="#D22B3F"
 		android:elevation="3dp">
 
 		<ImageButton

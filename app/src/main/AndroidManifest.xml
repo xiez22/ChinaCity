@@ -21,7 +21,7 @@
         </activity>
 		<activity
 			android:label="中国城"
-			android:theme="@style/MAINTheme"
+			android:theme="@style/NewMAINTheme"
 			android:name=".MainActivity">
 		</activity>
 		<activity

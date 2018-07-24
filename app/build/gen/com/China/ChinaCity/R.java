@@ -21,13 +21,15 @@ public final class R {
         public static final int icon_back=0x7f020003;
         public static final int icon_close=0x7f020004;
         public static final int icon_share=0x7f020005;
-        public static final int image_icon=0x7f020006;
-        public static final int image_logo=0x7f020007;
-        public static final int list_corner_view=0x7f020008;
-        public static final int none_corner_view=0x7f020009;
-        public static final int pink_corner_view=0x7f02000a;
-        public static final int purple_corner_view=0x7f02000b;
-        public static final int white_corner_view=0x7f02000c;
+        public static final int image_corner_view=0x7f020006;
+        public static final int image_icon=0x7f020007;
+        public static final int image_logo=0x7f020008;
+        public static final int list_corner_view=0x7f020009;
+        public static final int main_corner_view=0x7f02000a;
+        public static final int none_corner_view=0x7f02000b;
+        public static final int pink_corner_view=0x7f02000c;
+        public static final int purple_corner_view=0x7f02000d;
+        public static final int white_corner_view=0x7f02000e;
     }
     public static final class id {
         public static final int hiButton1=0x7f080003;
@@ -110,10 +112,11 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
-        public static final int GalleryTheme=0x7f070005;
-        public static final int HiTheme=0x7f070002;
+        public static final int GalleryTheme=0x7f070006;
+        public static final int HiTheme=0x7f070003;
         public static final int MAINTheme=0x7f070001;
-        public static final int MapTheme=0x7f070004;
-        public static final int MetroTheme=0x7f070003;
+        public static final int MapTheme=0x7f070005;
+        public static final int MetroTheme=0x7f070004;
+        public static final int NewMAINTheme=0x7f070002;
     }
 }

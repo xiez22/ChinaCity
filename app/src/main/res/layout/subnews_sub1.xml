@@ -9,7 +9,7 @@
 		android:layout_height="60dp"
 		android:layout_width="match_parent"
 		android:orientation="horizontal"
-		android:background="#A70900"
+		android:background="#D22B3F"
 		android:elevation="3dp">
 
 		<ImageButton
@@ -67,9 +67,11 @@
 				android:layout_marginLeft="10dp"
 				android:layout_marginRight="10dp"
 				android:layout_marginBottom="10dp"
-				android:textColor="#A70900"
-				android:background="@drawable/pink_corner_view"
-				android:id="@+id/subnewssub1TextView2"/>
+				android:textColor="#FFFFFF"
+				android:background="@drawable/big_corner_view"
+				android:id="@+id/subnewssub1TextView2"
+				android:paddingLeft="10dp"
+				android:elevation="2dp"/>
 
 			<View
 				android:background="?android:attr/dividerVertical"

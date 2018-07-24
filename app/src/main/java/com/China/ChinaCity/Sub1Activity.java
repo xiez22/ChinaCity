@@ -127,23 +127,34 @@ public class Sub1Activity extends Activity
 				String path = Environment.getExternalStorageDirectory().toString();//获得SDCard目录 
 				Bitmap bmpDefaultPic=null;
 				ImageView  iv = (ImageView)findViewById(R.id.sub1ImageView1);
-				if (bmpDefaultPic == null)
+				if (bmpDefaultPic == null){
 					bmpDefaultPic = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_map.jpg", null);
+	                bmpDefaultPic=roundBitmapByShader(bmpDefaultPic,iv.getWidth(),iv.getMeasuredHeight(),20);
+					}
 				iv.setImageBitmap(bmpDefaultPic);
 				Bitmap bmpDefaultPic1=null;
 				ImageView  iv1 = (ImageView)findViewById(R.id.sub1ImageView2);
-				if (bmpDefaultPic1 == null)
+				if (bmpDefaultPic1 == null){
 					bmpDefaultPic1 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_area.jpg", null);
+	                bmpDefaultPic1=roundBitmapByShader(bmpDefaultPic1,iv1.getWidth(),iv1.getMeasuredHeight(),20);
+				}
+					//bmpDefaultPic1 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_area.jpg", null);
 				iv1.setImageBitmap(bmpDefaultPic1);
 				Bitmap bmpDefaultPic2=null;
 				ImageView  iv2 = (ImageView)findViewById(R.id.sub1ImageView3);
-				if (bmpDefaultPic2 == null)
-					bmpDefaultPic2 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_gallery.jpg", null);
+				if (bmpDefaultPic2 == null){
+					bmpDefaultPic2= BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_gallery.jpg", null);
+	                bmpDefaultPic2=roundBitmapByShader(bmpDefaultPic2,iv2.getWidth(),iv2.getMeasuredHeight(),20);
+				}
+					//bmpDefaultPic2 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_gallery.jpg", null);
 				iv2.setImageBitmap(bmpDefaultPic2);
 				Bitmap bmpDefaultPic3=null;
 				ImageView  iv3 = (ImageView)findViewById(R.id.sub1ImageView4);
-				if (bmpDefaultPic3 == null)
+				if (bmpDefaultPic3 == null){
 					bmpDefaultPic3 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_news.jpg", null);
+	                bmpDefaultPic3=roundBitmapByShader(bmpDefaultPic3,iv3.getWidth(),iv3.getMeasuredHeight(),20);
+				}
+					//bmpDefaultPic3 = BitmapFactory.decodeFile(path + "/Android/data/com.China.ChinaCity/cache/image_news.jpg", null);
 				iv3.setImageBitmap(bmpDefaultPic3);
 				
 				if(downloaded==1){
@@ -192,6 +203,39 @@ public class Sub1Activity extends Activity
 			return builder.create();
 		}
    }
+   
+   //Image Lab
+	public Bitmap roundBitmapByShader(Bitmap bitmap, int outWidth, int outHeight, int radius) {
+		if(bitmap == null) {
+			throw new NullPointerException("Bitmap can't be null");
+		}
+		// 初始化缩放比
+		float widthScale = outWidth * 1.0f / bitmap.getWidth();
+		float heightScale = widthScale;//outHeight * 1.0f / bitmap.getHeight();
+		Matrix matrix = new Matrix();
+		matrix.setScale(widthScale, heightScale);
+
+		// 初始化绘制纹理图
+		BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+		// 根据控件大小对纹理图进行拉伸缩放处理
+		bitmapShader.setLocalMatrix(matrix);
+
+		// 初始化目标bitmap
+		Bitmap targetBitmap = Bitmap.createBitmap(outWidth, outHeight, Bitmap.Config.ARGB_8888);
+
+		// 初始化目标画布
+		Canvas targetCanvas = new Canvas(targetBitmap);
+
+		// 初始化画笔
+		Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setShader(bitmapShader);
+
+		// 利用画笔将纹理图绘制到画布上面
+		targetCanvas.drawRoundRect(new RectF(0, 0, outWidth, outHeight), radius, radius, paint);
+
+		return targetBitmap;
+	}
 }
 
 

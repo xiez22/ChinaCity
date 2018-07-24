@@ -2,8 +2,8 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.China.ChinaCity"
-	android:versionCode="16"
-	android:versionName="2.5.0 beta3">
+	android:versionCode="17"
+	android:versionName="2.5.0 beta4">
 
 	<uses-sdk
 		android:minSdkVersion="14"
@@ -33,7 +33,7 @@
 
 		<activity
 			android:label="中国城"
-			android:theme="@style/MAINTheme"
+			android:theme="@style/NewMAINTheme"
 			android:name=".MainActivity">
 
 		</activity>

@@ -45,7 +45,8 @@
 		android:textSize="14sp"
 		android:textColor="#A70900"
 		android:background="@drawable/pink_corner_view"
-		android:id="@+id/newsentryTextView3"/>
+		android:id="@+id/newsentryTextView3"
+		android:elevation="2dp"/>
 
 	<TextView
 		android:layout_width="match_parent"

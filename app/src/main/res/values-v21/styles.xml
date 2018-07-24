@@ -9,9 +9,18 @@
 		
 		</style>
 	<style name="MAINTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
-	  	<item name="android:colorPrimary">#a40900</item>
+	  	<item name="android:colorPrimary">#ff2033</item>
 		<item name="android:windowNoTitle">true</item>
-		<item name="android:colorPrimaryDark">#a40900</item>
+		<item name="android:colorPrimaryDark">#d22b3f</item>
+
+		<item name="android:colorAccent">#FF0000</item> 
+		<item name="android:colorButtonNormal">#ffffff</item>
+
+	</style>
+	<style name="NewMAINTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+	  	<item name="android:colorPrimary">#ffffff</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:colorPrimaryDark">#ffffff</item>
 
 		<item name="android:colorAccent">#FF0000</item> 
 		<item name="android:colorButtonNormal">#ffffff</item>
